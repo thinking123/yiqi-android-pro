@@ -151,7 +151,7 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
     private void initBottomBar() {
         addFragment();
         homeTab = new BottomBarTab(mContext, R.drawable.home, "首页");
-        categoryTab = new BottomBarTab(mContext, R.drawable.phone_light, "热线");
+        categoryTab = new BottomBarTab(mContext, R.drawable.chatterbox, "消息");
         cartTab = new BottomBarTab(mContext, R.drawable.search_light, "搜索");
         findTab = new BottomBarTab(mContext, R.drawable.cart_light, "购物车");
         selfTab = new BottomBarTab(mContext, R.drawable.my_light, "我的");
