@@ -4,13 +4,13 @@ android {
     signingConfigs {
         release {
             keyPassword 'a12345678'
-            storeFile file('C:/work/shop/keystore.jks')
+            storeFile file('D:/android-keystore/shop/keystore.jks')
             storePassword 'a12345678'
             keyAlias 'key0'
         }
         debug {
             keyPassword 'a12345678'
-            storeFile file('C:/work/shop/keystore.jks')
+            storeFile file('D:/android-keystore/shop/keystore.jks')
             storePassword 'a12345678'
             keyAlias 'key0'
         }
@@ -35,6 +35,11 @@ android {
             }
         }
         multiDexEnabled true
+
+        ndk{
+            //easeui arm64-v8a 和app 的 arm64-v8a 冲突，只包括下面的 abi
+            abiFilters 'armeabi-v7a','armeabi','x86'
+        }
     }
 
     configurations {

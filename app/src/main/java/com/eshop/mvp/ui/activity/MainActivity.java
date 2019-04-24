@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import com.eshop.app.base.BaseApp;
 import com.eshop.mvp.ui.fragment.CartHomeFragment;
 import com.eshop.mvp.ui.fragment.CategoryAllFragment;
+import com.eshop.mvp.ui.fragment.ConversationListFragment;
 import com.eshop.mvp.ui.fragment.HomeFragment;
 import com.eshop.mvp.ui.fragment.HotLineFragment;
 import com.jaeger.library.StatusBarUtil;
@@ -184,14 +185,16 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
         ISupportFragment recommendFragment = findFragment(RecommendFragment.class);
         if (recommendFragment == null) {
             mFragments[0] = new HomeFragment();
-            mFragments[1] = new HotLineFragment();
+            //            mFragments[1] = new HotLineFragment();
+            mFragments[1] = new ConversationListFragment();
             mFragments[2] = new CategoryAllFragment();
             mFragments[3] = new CartHomeFragment();
             mFragments[4] = new SelfFragment();
             loadMultipleRootFragment(R.id.fragment_contain, 0, mFragments);
         } else {
             mFragments[0] = findFragment(HomeFragment.class);
-            mFragments[1] = findFragment(HotLineFragment.class);
+            //            mFragments[1] = findFragment(HotLineFragment.class);
+            mFragments[1] = findFragment(ConversationListFragment.class);
             mFragments[2] = findFragment(CategoryAllFragment.class);
             mFragments[3] = findFragment(CartHomeFragment.class);
             mFragments[4] = findFragment(SelfFragment.class);

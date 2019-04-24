@@ -20,6 +20,8 @@ import com.eshop.mvp.http.entity.store.HelpBean;
 import com.eshop.mvp.http.entity.store.PublishGoods;
 import com.eshop.mvp.http.entity.store.StoreState;
 import com.eshop.mvp.utils.Util;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMOptions;
 import com.jess.arms.base.App;
 import com.jess.arms.base.delegate.AppDelegate;
 import com.jess.arms.di.component.AppComponent;
@@ -102,8 +104,22 @@ public class BaseApp extends Application implements App {
         this.mAppDelegate.attachBaseContext(base);
     }
 
+    /*
+     * init 环信SDK
+     * */
+    private void initHXConfig(){
+        EMOptions options = new EMOptions();
+        // 默认添加好友时，是不需要验证的，改成需要验证
+//        options.setAcceptInvitationAlways(false);
+
+        //初始化
+        EMClient.getInstance().init(this , options);
+//在做打包混淆时，关闭debug模式，避免消耗不必要的资源
+        EMClient.getInstance().setDebugMode(true);
+    }
     public void onCreate() {
         super.onCreate();
+        initHXConfig();
         if (this.mAppDelegate != null) {
             this.mAppDelegate.onCreate(this);
         }
