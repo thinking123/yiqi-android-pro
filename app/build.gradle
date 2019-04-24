@@ -1,0 +1,162 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            keyPassword 'a12345678'
+            storeFile file('C:/work/shop/keystore.jks')
+            storePassword 'a12345678'
+            keyAlias 'key0'
+        }
+        debug {
+            keyPassword 'a12345678'
+            storeFile file('C:/work/shop/keystore.jks')
+            storePassword 'a12345678'
+            keyAlias 'key0'
+        }
+    }
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.eshop"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+//        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        multiDexEnabled true
+    }
+
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+    }
+
+    //打包测试
+    buildTypes {
+
+        debug {
+            //这两个变量是自定义的,自己也可以自定义字段,他会默认配置到BuildConfig中,app中可以根据这些字段执行一些操作
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //打包名称设置
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                output ->
+                    def outputFile = output.outputFile
+                    if (outputFile.name.contains("debug")) {
+                        outputFileName = new File("../debug/", "app-debug.apk")
+                    }
+                    def date = new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08"))
+                    if (outputFile.name.contains("release")) {
+                        outputFileName = new File("../release/", "shop-release-V${variant.versionCode}-${date}.apk")
+                    }
+            }
+    }
+    sourceSets {
+        main {
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    packagingOptions {
+        exclude 'AndroidManifest.xml'
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //support
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation(rootProject.ext.dependencies["cardview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    implementation rootProject.ext.dependencies["constraint"]
+    implementation rootProject.ext.dependencies["support-v4"]
+    implementation rootProject.ext.dependencies["design"]
+    //tools
+    implementation rootProject.ext.dependencies["progressmanager"]
+    implementation rootProject.ext.dependencies["retrofit-url-manager"]
+    implementation rootProject.ext.dependencies["lifecyclemodel"]
+    implementation rootProject.ext.dependencies["fragmentation"]
+    implementation rootProject.ext.dependencies["fragmentation-core"]
+    implementation rootProject.ext.dependencies["brvah"]
+    implementation rootProject.ext.dependencies["banner"]
+    implementation rootProject.ext.dependencies["httplog"]
+    implementation rootProject.ext.dependencies["statusbarutil"]
+    implementation rootProject.ext.dependencies["lombok"]
+    implementation rootProject.ext.dependencies["dagger2"]
+    annotationProcessor rootProject.ext.dependencies["lombok-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //arms
+    //    implementation project(':arms')
+    //Github 仓库上最新的 Demo 具有下一个版本的新特性, 所以依赖最新的远程库会出现版本不兼容的情况, 详情请查看 https://github.com/JessYanCoding/MVPArms/wiki/Issues#2
+    implementation('me.jessyan:arms:2.4.1') {
+        exclude group: 'com.github.VictorAlbertos.Jolyglot', module: 'gson'
+
+    }
+    //test
+    //implementation project(':IMKit')
+    testImplementation rootProject.ext.dependencies["junit"]
+    debugImplementation rootProject.ext.dependencies["canary-debug"]
+    releaseImplementation rootProject.ext.dependencies["canary-release"]
+    testImplementation rootProject.ext.dependencies["canary-release"]
+    implementation 'com.github.HuanTanSheng:EasyPhotos:2.3.2'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation rootProject.ext.dependencies["JCVideoPlayer"]
+    compile project(':dialoglib')
+    //implementation 'jp.wasabeef:glide-transformations:4.0.1'
+    compile project(':wavesidebar')
+    implementation 'com.afollestad.material-dialogs:core:0.9.4.5'
+    // implementation 'com.github.arcadefire:nice-spinner:1.3.8'
+    implementation project(':library')
+    // log
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.alibaba:fastjson:1.2.9'
+    //fastjson
+    compile 'com.facebook.fresco:fresco:1.7.1'
+    compile 'com.facebook.fresco:animated-gif:1.7.1'
+    compile 'com.facebook.fresco:webpsupport:1.7.1'
+    implementation project(':anylayer')
+    implementation 'com.yanzhenjie.recyclerview:support:1.3.1'
+    compile 'com.hyman:flowlayout-lib:1.1.2'
+    // 支付宝 SDK AAR 包所需的配置
+    compile(name: 'alipaySdk-15.6.0-20190226104053', ext: 'aar')
+    implementation project(':easeui')
+}

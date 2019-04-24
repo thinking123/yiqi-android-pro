@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/normal_back_ground"
+    android:orientation="vertical"
+    tools:context=".mvp.ui.activity.order.CreateOrderActivity">
+
+    <include layout="@layout/simple_tool_bar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_height"
+        android:layout_gravity="bottom"
+
+        android:background="@color/normal_back_ground">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="end|center"
+            android:text="合计:"
+            android:textColor="@color/text_black_33"
+            android:textSize="@dimen/text_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="¥"
+            android:textColor="@color/red_e40"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="0.00"
+            android:textColor="@color/red_e40"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_left_right"
+            android:background="@color/color_3333"
+            android:paddingStart="@dimen/margin_left_right"
+            android:paddingEnd="@dimen/margin_left_right"
+            android:text="修改价格"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_sub_title" />
+
+        <LinearLayout
+            android:id="@+id/lay"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/normal_height"
+            android:layout_gravity="bottom"
+            android:background="@color/normal_back_ground"
+            android:orientation="horizontal"
+            android:paddingRight="16dp">
+
+
+            <TextView
+                android:id="@+id/tv_send"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_normal"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_circle_black"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="3dp"
+                android:paddingBottom="2dp"
+                android:layout_gravity="center_vertical"
+                android:text="发货"
+                android:textColor="@color/text_black_33"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_look"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_normal"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/bg_circle_black"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="2dp"
+                android:paddingEnd="3dp"
+                android:paddingBottom="2dp"
+                android:text="查看物流"
+                android:textColor="@color/text_black_33"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

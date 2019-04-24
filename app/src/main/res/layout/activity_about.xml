@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f4f5"
+    android:fitsSystemWindows="true">
+
+
+    <TextView
+        android:id="@+id/borth_contact"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip_bar" />
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/simple_tool_bar" />
+
+    <TextView
+        android:id="@+id/tip_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line7" />
+
+    <TextView
+        android:id="@+id/line7"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:background="@color/gray_ed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_bar" />
+
+    <TextView
+        android:id="@+id/about_bar"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/version" />
+
+    <ImageView
+        android:id="@+id/sex_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/line7"
+        app:layout_constraintEnd_toEndOf="@+id/about_bar"
+        app:layout_constraintTop_toTopOf="@+id/about_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="联系我们"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/borth_contact"
+        app:layout_constraintStart_toStartOf="@+id/borth_contact"
+        app:layout_constraintTop_toTopOf="@+id/borth_contact" />
+
+    <ImageView
+        android:id="@+id/both_arrow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/borth_contact"
+        app:layout_constraintEnd_toEndOf="@+id/borth_contact"
+        app:layout_constraintTop_toTopOf="@+id/borth_contact"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <ImageView
+        android:id="@+id/age_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/age"
+        app:layout_constraintEnd_toEndOf="@+id/tip_bar"
+        app:layout_constraintTop_toTopOf="@+id/tip_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="公司介绍"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/about_bar"
+        app:layout_constraintStart_toStartOf="@+id/about_bar"
+        app:layout_constraintTop_toTopOf="@+id/about_bar" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="关于我们"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_bar"
+        app:layout_constraintStart_toStartOf="@+id/tip_bar"
+        app:layout_constraintTop_toTopOf="@+id/tip_bar" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_bar"
+        app:layout_constraintEnd_toStartOf="@+id/age_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/line7" />
+
+    <ImageView
+        android:id="@+id/head"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3"
+        app:srcCompat="@drawable/gongsi" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="一器商城"
+        android:textColor="@color/color_3333"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="v1.0"
+        android:textColor="@color/color_3333"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
+</android.support.constraint.ConstraintLayout>

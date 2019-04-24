@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/simple_tool_bar" />
+
+    <LinearLayout
+        android:id="@+id/no_lay"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="不选择店铺分类"
+            android:textColor="@color/color_3333"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/no_cat"
+            android:button="@drawable/select_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/use_lay"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="选择店铺分类"
+            android:textColor="@color/color_3333"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/use_cat"
+            android:button="@drawable/select_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/empty"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="暂无分类,去店铺类目中添加"
+            android:textColor="@color/red"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/arrow_right_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/line"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_f7f7" />
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:background="@color/gray_fd"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray_fd"
+                android:foregroundGravity="center" />
+
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

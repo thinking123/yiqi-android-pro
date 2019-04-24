@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f4f5"
+    android:fitsSystemWindows="true">
+
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/simple_tool_bar" />
+
+    <TextView
+        android:id="@+id/borth_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip_bar" />
+
+    <TextView
+        android:id="@+id/tip_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line7" />
+
+    <TextView
+        android:id="@+id/line7"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:background="@color/gray_ed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_bar" />
+
+    <TextView
+        android:id="@+id/about_bar"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+    <ImageView
+        android:id="@+id/sex_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/line7"
+        app:layout_constraintEnd_toEndOf="@+id/about_bar"
+        app:layout_constraintTop_toTopOf="@+id/about_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <ImageView
+        android:id="@+id/age_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/borth_bar"
+        app:layout_constraintEnd_toEndOf="@+id/tip_bar"
+        app:layout_constraintTop_toTopOf="@+id/tip_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <ImageView
+        android:id="@+id/both_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/borth_bar"
+        app:layout_constraintEnd_toEndOf="@+id/borth_bar"
+        app:layout_constraintTop_toTopOf="@+id/borth_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="关于我们"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/about_bar"
+        app:layout_constraintStart_toStartOf="@+id/about_bar"
+        app:layout_constraintTop_toTopOf="@+id/about_bar" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="意见反馈"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/borth_bar"
+        app:layout_constraintStart_toStartOf="@+id/tip_bar"
+        app:layout_constraintTop_toTopOf="@+id/tip_bar" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_bar"
+        app:layout_constraintEnd_toStartOf="@+id/age_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/line7" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="密码修改"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/borth_bar"
+        app:layout_constraintStart_toStartOf="@+id/borth_bar"
+        app:layout_constraintTop_toTopOf="@+id/borth_bar" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/borth_bar" />
+
+
+</android.support.constraint.ConstraintLayout>

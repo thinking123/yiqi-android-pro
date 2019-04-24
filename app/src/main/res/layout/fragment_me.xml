@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/wodehetong_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/wodehetong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wodehetong"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <TextView
+        android:id="@+id/wodehetong_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        android:text="邀请好友"
+        app:layout_constraintBottom_toBottomOf="@+id/wodehetong"
+        app:layout_constraintStart_toEndOf="@+id/shiming"
+        app:layout_constraintTop_toTopOf="@+id/wodehetong" />
+
+    <ImageView
+        android:id="@+id/wodehetong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line6"
+        app:srcCompat="@drawable/invite_friend" />
+
+    <TextView
+        android:id="@+id/line6"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bangzhu" />
+
+    <TextView
+        android:id="@+id/line7"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wodehetong" />
+
+
+    <ImageView
+        android:id="@+id/bangzhu_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bangzhu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bangzhu"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <TextView
+        android:id="@+id/bangzhu_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="帮助中心"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bangzhu"
+        app:layout_constraintStart_toEndOf="@+id/shiming"
+        app:layout_constraintTop_toTopOf="@+id/bangzhu" />
+
+    <ImageView
+        android:id="@+id/bangzhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line5"
+        app:srcCompat="@drawable/bangzhu" />
+
+    <TextView
+        android:id="@+id/line5"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shiming" />
+
+    <ImageView
+        android:id="@+id/shiming_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shiming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shiming"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <TextView
+        android:id="@+id/shiming_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="实名认证"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shiming"
+        app:layout_constraintStart_toEndOf="@+id/shiming"
+        app:layout_constraintTop_toTopOf="@+id/shiming" />
+
+    <ImageView
+        android:id="@+id/dianpuguanli_arror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dianpuguanli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dianpuguanli"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/include2"
+        layout="@layout/my_tool_bar" />
+
+    <ImageView
+        android:id="@+id/iv_header"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        app:srcCompat="@drawable/touxiang" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="名字"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_title"
+        app:layout_constraintStart_toEndOf="@+id/iv_header"
+        app:layout_constraintTop_toTopOf="@+id/iv_header" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="关注"
+
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <TextView
+        android:id="@+id/shoucang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="收藏"
+
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/guan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/shou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/shoucang"
+        app:layout_constraintTop_toTopOf="@+id/shoucang" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+       android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_header" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="我的订单"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:text="查看所有订单"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+    <ImageView
+        android:id="@+id/daifu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/daifa"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:srcCompat="@drawable/daifukuai" />
+
+    <ImageView
+        android:id="@+id/daifa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/daishou"
+        app:layout_constraintStart_toEndOf="@+id/daifu"
+        app:layout_constraintTop_toTopOf="@+id/daifu"
+        app:srcCompat="@drawable/daifahuo" />
+
+    <ImageView
+        android:id="@+id/daishou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/wancheng"
+        app:layout_constraintStart_toEndOf="@+id/daifa"
+        app:layout_constraintTop_toTopOf="@+id/daifa"
+        app:srcCompat="@drawable/daishouhuo" />
+
+    <ImageView
+        android:id="@+id/wancheng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/daishou_txt"
+        app:layout_constraintEnd_toStartOf="@+id/tuikuan"
+        app:layout_constraintStart_toEndOf="@+id/daishou"
+        app:layout_constraintTop_toTopOf="@+id/daishou"
+        app:srcCompat="@drawable/yiwancheng" />
+
+    <ImageView
+        android:id="@+id/tuikuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/wancheng"
+        app:layout_constraintTop_toTopOf="@+id/wancheng"
+        app:srcCompat="@drawable/tuikuan" />
+
+    <TextView
+        android:id="@+id/daifu_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="待付款"
+        android:textColor="@color/color_4e4e"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/daifu"
+        app:layout_constraintStart_toStartOf="@+id/daifu"
+        app:layout_constraintTop_toBottomOf="@+id/daifu" />
+
+    <TextView
+        android:id="@+id/daifa_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="待发货"
+        android:textColor="@color/color_4e4e"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/daifa"
+        app:layout_constraintStart_toStartOf="@+id/daifa"
+        app:layout_constraintTop_toTopOf="@+id/daifu_txt" />
+
+    <TextView
+        android:id="@+id/daishou_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="待收货"
+        android:textColor="@color/color_4e4e"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/daishou"
+        app:layout_constraintStart_toStartOf="@+id/daishou"
+        app:layout_constraintTop_toTopOf="@+id/daifu_txt" />
+
+    <TextView
+        android:id="@+id/yiwancheng_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已完成"
+        android:textColor="@color/color_4e4e"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/wancheng"
+        app:layout_constraintStart_toStartOf="@+id/wancheng"
+        app:layout_constraintTop_toTopOf="@+id/daifu_txt" />
+
+    <TextView
+        android:id="@+id/tuikuan_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="退款/售后"
+        android:textColor="@color/color_4e4e"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tuikuan"
+        app:layout_constraintStart_toStartOf="@+id/tuikuan"
+        app:layout_constraintTop_toTopOf="@+id/daifu_txt" />
+
+    <TextView
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daifu_txt" />
+
+    <ImageView
+        android:id="@+id/wodedianpu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        app:srcCompat="@drawable/wodedianpu" />
+
+    <TextView
+        android:id="@+id/wodedianpu_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="我的店铺"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/wodedianpu"
+        app:layout_constraintStart_toEndOf="@+id/wodedianpu"
+        app:layout_constraintTop_toTopOf="@+id/wodedianpu" />
+
+    <ImageView
+        android:id="@+id/wodedianpu_arror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/wodedianpu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wodedianpu"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <TextView
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wodedianpu" />
+
+    <ImageView
+        android:id="@+id/dianpuguanli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2"
+        app:srcCompat="@drawable/diapuguahli"
+        tools:srcCompat="@drawable/diapuguahli" />
+
+    <TextView
+        android:id="@+id/dianpuguanli_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="店铺管理"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dianpuguanli"
+        app:layout_constraintStart_toEndOf="@+id/dianpuguanli"
+        app:layout_constraintTop_toTopOf="@+id/dianpuguanli" />
+
+    <TextView
+        android:id="@+id/line3"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dianpuguanli" />
+
+    <ImageView
+        android:id="@+id/shiming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line3"
+        app:srcCompat="@drawable/shiming" />
+
+    <TextView
+        android:id="@+id/mystore"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/line2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <TextView
+        android:id="@+id/store_mgr"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/line3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+    <TextView
+        android:id="@+id/real_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/line4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line3" />
+
+    <TextView
+        android:id="@+id/help"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/line6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line5" />
+
+    <TextView
+        android:id="@+id/hetong"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/line7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line6" />
+
+
+</android.support.constraint.ConstraintLayout>

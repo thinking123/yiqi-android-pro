@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MofingThemeBase" parent="Base.Theme.AppCompat.Light">
+        <!-- 		<item name="android:windowAnimationStyle">@style/Animation</item> -->
+        <!-- 		<item name="android:windowAnimationStyle">@null</item> -->
+        <!--<item name ="android:colorPrimaryDark">#001125</item>-->
+       <!-- <item name="android:windowBackground">@drawable/mofing_splash</item> -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+
+        <!--  <item name="android:windowNoTitle">true</item>
+          <item name="android:windowFullscreen">true</item>
+          <item name="android:windowContentOverlay">@null</item>
+            <item name="android:statusBarColor">@android:color/transparent</item> -->
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/color_1d1d</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <item name="colorControlNormal">@color/iron</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="android:textColorHint">@color/iron</item>
+
+        <item name="colorButtonNormal">@color/color_3333</item>
+        <item name="android:colorButtonNormal">@color/color_3333</item>
+
+        <item name="android:buttonStyle">@style/LoginButtonTheme</item>
+
+
+        <item name="android:windowAnimationStyle">@style/CustomAnimation.Activity</item>
+    </style>
+
+    <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Help" parent="Base.Theme.Help">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/color_3333</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

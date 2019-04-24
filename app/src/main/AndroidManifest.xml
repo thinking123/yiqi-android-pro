@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.eshop">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".app.base.BaseApp"
+        android:allowBackup="true"
+        android:icon="@drawable/icon_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:replace="theme,android:icon">
+        <activity
+            android:name="com.zkteam.discover.CatMainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".mvp.ui.activity.login.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash_Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".mvp.ui.activity.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+
+        <meta-data
+            android:name="com.eshop.app.GlobalConfiguration"
+            android:value="ConfigModule" />
+
+        <activity
+            android:name=".mvp.ui.activity.comment.CommentDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.login.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.set.AppSetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.comment.PublishCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.order.CreateOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.CreateProductActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.ManageProductActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.SearchProductListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.PhotoViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.login.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.UserDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.login.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.login.BindActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.login.AvatarActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.product.CatProductActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.BrandActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.ProductListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.SaleFlashActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.product.ProductDetailsActivity"
+            android:label="@string/title_activity_goods_detail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".mvp.ui.activity.product.StoreActivity"
+            android:label="@string/title_activity_scrolling"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".mvp.ui.activity.product.StoreIntroduceActivity"
+            android:label="@string/title_activity_scrolling"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".mvp.ui.activity.product.StoreCatActivity"
+            android:label="@string/title_activity_scrolling"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".mvp.ui.activity.login.UserInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".mvp.ui.activity.set.AddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.OrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.order.StoreOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.order.PayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.RefundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.StoreManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.store.AuthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.store.RealNameAuthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.CompanyAuthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.StoreInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.CatSetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.store.GoodsMgrActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.store.DeliverGoodsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.PublishGoodsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.EditGoodsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.StoreInnerCatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.StoreStateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.CollectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.set.SetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.set.OpinionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.set.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.order.AfterSaleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.order.DoAfterSaleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.RefundStateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.RefundSucessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.WalletActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.TransactionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.RecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.SetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.SetPasswordNextActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.SetAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.BankSetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.AddAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.WithdrawActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.WeixinZhifubaoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.store.WithDrawTypeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity android:name=".mvp.ui.activity.set.HelpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.ui.activity.set.HelpDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.ui.activity.store.MonthAuthActivity"
+            android:theme="@style/Theme.DesignDemo"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".mvp.ui.activity.store.MonthCompanyAuthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.OrderDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.ExpressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.StoreOrderDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+
+        <activity
+            android:name=".mvp.ui.activity.order.DeliverRefundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity
+            android:name=".mvp.ui.activity.order.RefundFinishActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo" />
+    </application>
+
+</manifest>

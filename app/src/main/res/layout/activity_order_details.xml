@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/normal_back_ground"
+    android:orientation="vertical"
+    tools:context=".mvp.ui.activity.order.CreateOrderActivity">
+
+    <include layout="@layout/simple_tool_bar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_height"
+        android:layout_gravity="bottom"
+        android:background="@color/normal_back_ground"
+        android:paddingLeft="16dp"
+        android:layout_marginBottom="10dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/lable"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:gravity="start|center"
+            android:text="合计:"
+            android:textColor="@color/text_black_33"
+            android:textSize="@dimen/text_normal" />
+
+        <TextView
+            android:id="@+id/mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/lable"
+            android:text="¥"
+            android:layout_centerVertical="true"
+            android:textColor="@color/red_e40"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_toRightOf="@id/mark"
+            android:text="0.00"
+            android:layout_centerVertical="true"
+            android:textColor="@color/red_e40"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/tv_cancel_order"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_pay"
+            android:background="@drawable/bg_circle_black"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:paddingStart="3dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="2dp"
+            android:text="取消订单"
+            android:textColor="@color/text_black_33"
+
+            android:textSize="@dimen/text_normal" />
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/text_normal"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/bg_circle_red"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:paddingStart="10dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="2dp"
+            android:text="付款"
+
+            android:textColor="@color/red"
+
+            android:textSize="@dimen/text_normal" />
+
+    </RelativeLayout>
+
+</LinearLayout>

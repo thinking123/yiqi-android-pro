@@ -1,0 +1,189 @@
+package com.eshop.mvp.presenter;
+
+import com.eshop.app.base.BaseApp;
+import com.eshop.mvp.http.entity.MyBaseResponse;
+import com.eshop.mvp.http.entity.login.LoginBean;
+import com.eshop.mvp.http.entity.login.UserInfoBean;
+import com.eshop.mvp.model.UserModel;
+import com.jess.arms.di.scope.ActivityScope;
+import com.jess.arms.mvp.BasePresenter;
+import com.eshop.mvp.contract.LoginContract;
+import com.eshop.mvp.http.entity.BaseResponse;
+import com.eshop.mvp.http.entity.login.JWTBean;
+import com.eshop.mvp.http.entity.login.UserBean;
+import com.eshop.mvp.utils.RxUtils;
+
+import java.io.File;
+
+import javax.inject.Inject;
+
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+
+/**
+ * @Author shijun
+ * @Data 2019/1/11
+ * @Package com.eshop.mvp.presenter
+ **/
+@ActivityScope
+public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginContract.View> {
+    RxErrorHandler rxErrorHandler;
+
+    @Inject
+    UserModel userModel;
+
+    @Inject
+    public LoginPresenter(LoginContract.Model model, LoginContract.View rootView, RxErrorHandler rxErrorHandler) {
+        super(model, rootView);
+        this.rxErrorHandler = rxErrorHandler;
+    }
+
+    public void login(String phone, String password, String deviceId) {
+        mModel.login(phone, password,BaseApp.deviceId)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<LoginBean>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<LoginBean> jwtBeanBaseResponse) {
+                        if (jwtBeanBaseResponse.isSuccess()) {
+                            mRootView.loginResult(jwtBeanBaseResponse.getData());
+                        } else {
+                            mRootView.showMessage(jwtBeanBaseResponse.getMsg());
+                        }
+                    }
+                });
+    }
+
+    public void sendSms(String phone) {
+        mModel.sendSms(phone)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<String>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<String> stringBaseResponse) {
+                        if (stringBaseResponse.isSuccess())
+                            mRootView.showMessage("验证码发送成功.");
+                        else
+                            mRootView.showMessage(stringBaseResponse.getMsg());
+                    }
+                });
+    }
+
+    public void checkCode(String password,
+                          String phone,
+                          String smsCode,
+                          String from) {
+        mModel.checkCode(phone, smsCode)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<String>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<String> response) {
+                        if (response.isSuccess()) {
+                            if (from.equalsIgnoreCase("register")) {
+                                //register(phone, password);
+                                mRootView.checkCodeSuccess();
+                            } else if (from.equalsIgnoreCase("password")) {
+                                setPassword(phone, password, "android");
+                            } else if (from.equalsIgnoreCase("bind")) {
+                                mRootView.checkCodeSuccess();
+                            }
+                        }
+                        else
+                            mRootView.showMessage(response.getMsg());
+                    }
+                });
+    }
+
+    public void register(String phone,
+                         String password,
+                         String logo,
+                         String nickName) {
+        mModel.register(phone, password,logo,nickName)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<UserInfoBean>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<UserInfoBean> userBeanBaseResponse) {
+                        if (userBeanBaseResponse.isSuccess())
+                            mRootView.registerSuccess(userBeanBaseResponse.getData());
+                        else
+                            mRootView.showMessage(userBeanBaseResponse.getMsg());
+                    }
+                });
+    }
+
+    public void setPassword(String phone, String password, String deviceId) {
+        mModel.setPassword(phone, password,BaseApp.deviceId)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<LoginBean>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<LoginBean> jwtBeanBaseResponse) {
+                        if (jwtBeanBaseResponse.isSuccess()) {
+                            mRootView.setPasswordResult(jwtBeanBaseResponse.getData());
+                        } else {
+                            mRootView.showMessage(jwtBeanBaseResponse.getMsg());
+                        }
+                    }
+                });
+    }
+
+    public void updateUserImage(String upload_file) {
+        MultipartBody.Part face = MultipartBody.Part.createFormData("file", "header_image.png", RequestBody.create(MediaType.parse("multipart/form-data"), new File(upload_file)));
+        userModel.upLoadImage(face)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<String>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<String> stringBaseResponse) {
+                        if (stringBaseResponse.isSuccess()){
+                            mRootView.updateUserImageSuccess(stringBaseResponse.getData());
+                        } else {
+                            mRootView.showMessage(stringBaseResponse.getMsg());
+                        }
+                    }
+                });
+    }
+
+    public void wxLogin(String unionid) {
+        mModel.wxlogin(unionid)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<LoginBean>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<LoginBean> jwtBeanBaseResponse) {
+                        if (jwtBeanBaseResponse.isSuccess()) {
+                            mRootView.wxLoginResult(jwtBeanBaseResponse.getData());
+                        } else {
+                            mRootView.showMessage(jwtBeanBaseResponse.getMsg());
+                        }
+                    }
+                });
+    }
+
+    public void checkPhone(String phone) {
+        mModel.checkPhone(phone)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<String>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<String> stringBaseResponse) {
+                        if (stringBaseResponse.isSuccess())
+                            mRootView.checkPhoneSuccess();
+                        else
+                            mRootView.showMessage(stringBaseResponse.getMsg());
+                    }
+                });
+    }
+
+    public void updateUserInfo(String id, String phone, String password, String logo, String nickName, int sex, String deviceId,String openId) {
+        mModel.updateUserInfo(id, phone, password, logo, nickName, sex, BaseApp.deviceId,openId)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<LoginBean>>(rxErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<LoginBean> response) {
+                        if (response.isSuccess())
+                            mRootView.updateUserInfoSuccess(response.getData());
+                        else
+                            mRootView.showMessage(response.getMsg());
+                    }
+                });
+    }
+
+}

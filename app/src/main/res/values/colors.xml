@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="text_red_eb3636">#eb3636</color>
+    <color name="text_black_211">#211d1d</color>
+    <color name="text_black_33">#333333</color>
+    <color name="text_black_66">#666666</color>
+    <color name="text_black_99">#999999</color>
+    <color name="text_black_cc">#cccccc</color>
+    <color name="text_black_ee">#eeeeee</color>
+    <color name="normal_back_ground">@color/gray_fa</color>
+    <color name="divider_color">@color/gray_f4</color>
+    <color name="gray_fd">#fdfefd</color>
+    <color name="gray_f2">#f2f2f2</color>
+    <color name="gray_f3">#f3f3f3</color>
+    <color name="gray_e2">#e2e2e2</color>
+    <color name="gray_ed">#ededed</color>
+    <color name="gray_fc">#fcfcfc</color>
+    <color name="gray_fa">#fafafa</color>
+    <color name="gray_f4">#f4f4f4</color>
+    <color name="gray_f5">#f5f5f5</color>
+    <color name="gray_f4f5">#f4f5f7</color>
+    <color name="gray_ea">#eaeaea</color>
+    <color name="gray_b9">#b9b9b9</color>
+    <color name="gray_97">#979797</color>
+    <color name="gray_f6">#f6f6f6</color>
+    <color name="gray_f7">#f7f7f7</color>
+    <color name="gray_f0">#f0f0f0</color>
+    <color name="gray_66">#99000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#c20c0c</color>
+    <color name="red_66">#ec0f38</color>
+    <color name="red_e40">#e40c09</color>
+    <color name="red_transparent_66">#33c20c0c</color>
+    <color name="main_color">@color/color_3333</color>
+    <!--<color name="main_color">#7EABF4</color>-->
+    <color name="main_color_aa">@color/color_9999</color>
+    <color name="bottom_navigation_unselected">@color/color_9999</color>
+    <color name="bottom_navigation_selected">@color/color_3333</color>
+    <color name="black_transparent_cc">#33000000</color>
+    <color name="yellow">#FF9402</color>
+
+    <color name="text_click_bg">#E6E9EB</color>
+    <color name="text_click_bg_press">@color/text_black_99</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="halftransparent">#66000000</color>
+
+    <color name="border">#dbd7d7</color>
+    <color name="primary">#fee07f</color>
+    <color name="primary_dark">#0093f4</color>
+    <color name="primary_darker">#0093f4</color>
+    <color name="main_blue">#0093f4</color>
+    <color name="gray">#ff959183</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="color_btn">#fa3960</color>
+    <color name="window_background">#FFF7F7F8</color>
+    <color name="color_3333">#333333</color>
+    <color name="color_3b3b">#3b3b3b</color>
+    <color name="color_c4c4">#c4c4c4</color>
+    <color name="color_e4e4">#e4e4e4</color>
+    <color name="color_4e4e">#4e4e4e</color>
+    <color name="color_6666">#666666</color>
+    <color name="color_9999">#999999</color>
+    <color name="color_1d1d">#1d1d1d</color>
+    <color name="color_f7f7">#f7f7f7</color>
+    <color name="color_f1f1">#f1f1f1</color>
+    <color name="color_f7f8">#f7f8fa</color>
+    <color name="color_e3e3">#e3e3e3</color>
+    <color name="color_e7e7">#e7e7e7</color>
+    <color name="color_d7d7">#d7d7d7</color>
+    <color name="color_dada">#dadada</color>
+
+    <color name="mofing_toolbar_color">#f5f6f6</color>
+    <color name="mofing_white">#F5F5F5</color>
+    <color name="back_gray">@color/mofing_toolbar_color</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="holo_orange_dark">#ccff8800</color>
+    <color name="holo_orange_fe">#fef2ee</color>
+
+    <color name="cp_cover_placeholder">#FFE6E6E6</color>
+
+    <color name="dialog_bg">#33000000</color>
+
+    <color name="text_color">#333333</color>
+
+    <color name="red_normal">#FF0000</color>
+    <color name="red_pressed">#FF6666</color>
+    <color name="green_normal">#37C000</color>
+    <color name="green_pressed">#30A070</color>
+    <color name="purple_normal">#9932CC</color>
+    <color name="purple_pressed">#9F79EE</color>
+
+
+    <color name="white_pressed">#CFCFCF</color>
+
+    <color name="month_fede">#FCD7D7</color>
+
+</resources>

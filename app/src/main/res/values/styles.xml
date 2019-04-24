@@ -1,0 +1,117 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color</item>
+        <item name="colorAccent">@color/main_color</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style> <!-- Base application theme. -->
+    <style name="Splash_Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here.
+        <item name="android:windowBackground">@drawable/icon_splash</item>-->
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--  <item name="android:windowNoTitle">true</item>
+          <item name="android:windowFullscreen">true</item> -->
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">@color/iron</item>
+        <item name="colorControlHighlight">@color/iron</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="colorButtonNormal">@color/color_3333</item>
+        <item name="android:colorButtonNormal">@color/color_3333</item>
+        <item name="android:buttonStyle">@style/LoginButtonTheme</item>
+
+        <item name="android:windowAnimationStyle">@style/CustomAnimation.Activity</item>
+    </style>
+
+    <style name="LoginButtonTheme" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/login_button_style</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CustomAnimation.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/right_to_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/left_to_right_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/right_to_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/left_to_right_out</item>
+    </style>
+
+    <style name="ButtonAppTheme" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/login_button_style</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.NoActionBar">
+        <!--  <item name="colorPrimary">#673AB7</item>
+          <item name="colorPrimaryDark">#512DA8</item>
+          <item name="colorAccent">#FF4081</item>
+        <item name="android:windowAnimationStyle">@style/DesignAnimation</item>-->
+        <item name="colorPrimary">@color/mofing_toolbar_color</item>
+        <item name="colorPrimaryDark">@color/mofing_toolbar_color</item>
+        <item name="colorAccent">@color/color_1d1d</item>
+
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">@color/iron</item>
+        <item name="colorControlHighlight">@color/iron</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:actionBarSize">40dp</item>
+        <item name="actionBarSize">40dp</item>
+        <item name="colorButtonNormal">@color/color_3333</item>
+        <item name="android:colorButtonNormal">@color/color_3333</item>
+        <item name="android:buttonStyle">@style/LoginButtonTheme</item>
+
+    </style>
+
+    <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo"></style>
+
+
+    <style name="Base.Theme.Help" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--  <item name="colorPrimary">#673AB7</item>
+          <item name="colorPrimaryDark">#512DA8</item>
+          <item name="colorAccent">#FF4081</item>
+        <item name="android:windowAnimationStyle">@style/DesignAnimation</item>-->
+        <item name="colorPrimary">@color/mofing_toolbar_color</item>
+        <item name="colorPrimaryDark">@color/mofing_toolbar_color</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/ButtonAppTheme</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:actionBarSize">40dp</item>
+        <item name="actionBarSize">40dp</item>
+        <item name="colorButtonNormal">@color/holo_orange_dark</item>
+        <item name="android:colorButtonNormal">@color/holo_orange_dark</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Navigation Header -->
+    <style name="NavPage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- <item name="android:background">@drawable/nav_page</item> -->
+        <item name="android:background">@color/white</item>
+    </style>
+
+
+</resources>

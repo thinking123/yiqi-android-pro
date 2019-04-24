@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/normal_back_ground"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/simple_tool_bar" />
+
+
+    <include layout="@layout/content_goods_detail"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_f6" />
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/ll_connect_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_left_right"
+            android:layout_marginStart="@dimen/margin_left_right"
+            android:elevation="@dimen/normal_elevation_height"
+            android:gravity="center"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_shop_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="店铺"
+                android:textColor="@color/text_black_66"
+                android:textSize="@dimen/text_normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_left_right"
+            android:layout_marginStart="@dimen/margin_left_right"
+            android:elevation="@dimen/normal_elevation_height"
+            android:gravity="center"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/shoucang_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/shoucang" />
+
+            <TextView
+                android:id="@+id/shoucang_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收藏"
+                android:textColor="@color/text_black_66"
+                android:textSize="@dimen/text_normal" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_cart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/yellow"
+            android:text="加入购物车"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_normal" />
+
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_3333"
+            android:text="立即购买"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_normal" />
+    </LinearLayout>
+
+
+</LinearLayout>

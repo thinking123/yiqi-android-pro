@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/card2_img"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card1_img"
+        app:srcCompat="@drawable/bt_shape_edit" />
+
+    <TextView
+        android:id="@+id/topbar2"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="16dp"
+        android:background="#f1f1f1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardid" />
+
+    <EditText
+        android:id="@+id/cardid"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="50dp"
+        android:background="@null"
+        android:hint="请输入身份证号"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardid_lable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/name_lable"
+        app:layout_constraintTop_toTopOf="@+id/cardid_lable" />
+
+    <TextView
+        android:id="@+id/cardid_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="身份证号:"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="50dp"
+        android:background="@null"
+        android:hint="请输入手机号"
+        android:inputType="phone"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/phone_lable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/name_lable"
+        app:layout_constraintTop_toTopOf="@+id/phone_lable" />
+
+    <TextView
+        android:id="@+id/phone_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="手机号:"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/topbar"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="#f1f1f1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip" />
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/simple_tool_bar" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:gravity="center_vertical"
+        android:background="@color/month_fede"
+        android:textColor="@color/red"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:ellipsize="end"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include4" />
+
+    <TextView
+        android:id="@+id/name_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="真实姓名:"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="50dp"
+        android:background="@null"
+        android:hint="请输入真实姓名"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/name_lable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/name_lable"
+        app:layout_constraintTop_toTopOf="@+id/name_lable" />
+
+    <TextView
+        android:id="@+id/photo_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="上传证件照片"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar2" />
+
+    <Button
+        android:id="@+id/btn_pay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="32dp"
+        android:text="下一步"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card1_img" />
+
+    <ImageView
+        android:id="@+id/card1_img"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_lable"
+        app:srcCompat="@drawable/bt_shape_edit" />
+
+    <ImageView
+        android:id="@+id/add1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/photo_card1"
+        app:layout_constraintEnd_toEndOf="@+id/card1_img"
+        app:layout_constraintStart_toStartOf="@+id/card1_img"
+        app:layout_constraintTop_toTopOf="@+id/card1_img"
+        app:srcCompat="@drawable/add" />
+
+    <ImageView
+        android:id="@+id/add2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/photo_card2"
+        app:layout_constraintEnd_toEndOf="@+id/card2_img"
+        app:layout_constraintStart_toStartOf="@+id/card2_img"
+        app:layout_constraintTop_toTopOf="@+id/card1_img"
+        app:srcCompat="@drawable/add" />
+
+    <ImageView
+        android:id="@+id/close1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        app:srcCompat="@drawable/close" />
+
+    <TextView
+        android:id="@+id/photo_card1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="手持身份证头部照"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card1_img"
+        app:layout_constraintEnd_toEndOf="@+id/card1_img"
+        app:layout_constraintStart_toStartOf="@+id/card1_img" />
+
+    <TextView
+        android:id="@+id/photo_card2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="身份证正面照"
+        android:textColor="@color/color_3333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card2_img"
+        app:layout_constraintEnd_toEndOf="@+id/card2_img"
+        app:layout_constraintStart_toStartOf="@+id/card2_img" />
+
+    <ImageView
+        android:id="@+id/close3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/cardid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardid"
+        app:srcCompat="@drawable/close" />
+
+    <ImageView
+        android:id="@+id/close2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phone"
+        app:srcCompat="@drawable/close" />
+
+    <TextView
+        android:id="@+id/look"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="查看示例"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pay" />
+
+</android.support.constraint.ConstraintLayout>

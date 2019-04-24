@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/lable8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="请确保证件完整、编号、文字、照片均清晰可见"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lable" />
+
+    <TextView
+        android:id="@+id/lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="上传店铺背景图:"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="请输入详细地址"
+        android:inputType="textPersonName"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lable7"
+        app:layout_constraintStart_toEndOf="@+id/lable7"
+        app:layout_constraintTop_toTopOf="@+id/lable7" />
+
+    <TextView
+        android:id="@+id/lable7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="详细地址"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/topbar6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar5" />
+
+    <ImageView
+        android:id="@+id/down3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lable6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lable6"
+        app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+
+    <TextView
+        android:id="@+id/lable6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=""
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/topbar5"
+        app:layout_constraintStart_toEndOf="@+id/lable5"
+        app:layout_constraintTop_toBottomOf="@+id/topbar4" />
+
+    <TextView
+        android:id="@+id/lable5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="所在地区"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar4" />
+
+    <TextView
+        android:id="@+id/topbar6"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="54dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar5" />
+
+    <TextView
+        android:id="@+id/topbar5"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="54dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar4" />
+
+    <TextView
+        android:id="@+id/topbar4"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:background="@color/color_d7d7"
+        android:layout_marginTop="54dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar3" />
+
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/nice_spinner_sub"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        app:textTint="@color/color_3333"
+        app:arrowTint="@color/color_3333"
+        app:layout_constraintBottom_toBottomOf="@+id/lable2"
+        app:layout_constraintTop_toTopOf="@+id/lable2"
+        app:layout_constraintStart_toEndOf="@+id/nice_spinner_cat"/>
+
+
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/nice_spinner_cat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        app:textTint="@color/color_3333"
+        app:arrowTint="@color/color_3333"
+        app:layout_constraintBottom_toBottomOf="@+id/lable2"
+        app:layout_constraintStart_toEndOf="@+id/lable2"
+        app:layout_constraintTop_toTopOf="@+id/lable2"  />
+
+    <TextView
+        android:id="@+id/lable2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="经营品类"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar3" />
+
+    <TextView
+        android:id="@+id/topbar3"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="54dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar2" />
+
+    <TextView
+        android:id="@+id/topbar2"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="16dp"
+        android:background="@color/color_d7d7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_tip" />
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/simple_tool_bar" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:gravity="center_vertical"
+        android:background="@color/month_fede"
+        android:textColor="@color/red"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:ellipsize="end"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include4" />
+
+    <Button
+        android:id="@+id/btn_pay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="提交审核"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_bak" />
+
+    <ImageView
+        android:id="@+id/head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip"
+        app:srcCompat="@drawable/default_head" />
+
+    <TextView
+        android:id="@+id/head_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="点击上传店铺头像"
+        android:textColor="@color/color_dada"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head" />
+
+    <TextView
+        android:id="@+id/lable1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="店铺名称"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar2" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="请输入店铺名称"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/lable1"
+        app:layout_constraintStart_toEndOf="@+id/lable1"
+        app:layout_constraintTop_toTopOf="@+id/lable1"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <TextView
+        android:id="@+id/city_select"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/down3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/down3" />
+
+    <ImageView
+        android:id="@+id/store_bak"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lable8"
+        app:srcCompat="@drawable/bt_shape_edit" />
+
+    <TextView
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@color/gray_f4f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topbar6" />
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

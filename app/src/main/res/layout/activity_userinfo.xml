@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:background="@color/gray_f4f5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/simple_tool_bar" />
+
+    <TextView
+        android:id="@+id/line7"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:background="@color/gray_ed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sex_bar" />
+
+    <TextView
+        android:id="@+id/sex_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nick_bar" />
+
+    <TextView
+        android:id="@+id/adress_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line7" />
+
+    <TextView
+        android:id="@+id/nick_bar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/head_bar"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:background="@color/gray_ed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_bar" />
+
+    <ImageView
+        android:id="@+id/header_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/nick_bar"
+        app:layout_constraintEnd_toEndOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/head_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="头像"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/nick_bar"
+        app:layout_constraintStart_toStartOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/head_bar" />
+
+    <ImageView
+        android:id="@+id/iv_header"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/nick_bar"
+        app:layout_constraintEnd_toStartOf="@+id/header_arrow"
+        app:layout_constraintTop_toTopOf="@+id/head_bar"
+        app:srcCompat="@drawable/black_background" />
+
+    <ImageView
+        android:id="@+id/nick_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nick_bar"
+        app:layout_constraintEnd_toEndOf="@+id/head_bar"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <ImageView
+        android:id="@+id/location_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/adress_bar"
+        app:layout_constraintEnd_toEndOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/adress_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+    <ImageView
+        android:id="@+id/sex_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/line7"
+        app:layout_constraintEnd_toEndOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/sex_bar"
+        app:srcCompat="@drawable/arrow_right_gray" />
+
+
+    <TextView
+        android:id="@+id/nick_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="昵称"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nick_bar"
+        app:layout_constraintStart_toStartOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/nick_bar" />
+
+    <TextView
+        android:id="@+id/nick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nick_bar"
+        app:layout_constraintEnd_toStartOf="@+id/nick_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/location_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="我的地址"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/adress_bar"
+        app:layout_constraintStart_toStartOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/adress_bar" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/adress_bar"
+        app:layout_constraintEnd_toStartOf="@+id/location_arrow"
+        app:layout_constraintTop_toTopOf="@+id/adress_bar" />
+
+    <TextView
+        android:id="@+id/sex_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="性别"
+        android:textColor="@color/color_3333"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/line7"
+        app:layout_constraintStart_toStartOf="@+id/head_bar"
+        app:layout_constraintTop_toTopOf="@+id/sex_bar" />
+
+    <TextView
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="男"
+        android:textColor="@color/color_9999"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/sex_bar"
+        app:layout_constraintEnd_toEndOf="@+id/sex_arrow"
+        app:layout_constraintTop_toTopOf="@+id/sex_bar" />
+
+
+</android.support.constraint.ConstraintLayout>

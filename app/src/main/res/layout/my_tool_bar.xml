@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/normal_height"
+    android:background="@color/normal_back_ground"
+    android:elevation="@dimen/normal_elevation_height"
+    app:contentInsetStart="0dp">
+
+    <LinearLayout
+        android:paddingTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/toolbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/icon_back_black" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:text="我的"
+                android:textColor="@color/text_black_33"
+                android:textSize="@dimen/text_title" />
+
+            <ImageView
+                android:id="@+id/set"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:src="@drawable/shezhi"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/divider_height"-->
+            <!--android:background="@color/divider_color" />-->
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>
