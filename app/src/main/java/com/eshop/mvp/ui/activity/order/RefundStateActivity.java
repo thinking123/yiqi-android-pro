@@ -36,9 +36,12 @@ import com.eshop.mvp.http.entity.order.RefundDetail2;
 import com.eshop.mvp.http.entity.order.RefundDetailUser;
 import com.eshop.mvp.http.entity.order.RefundInfo;
 import com.eshop.mvp.presenter.AfterSalePresenter;
+import com.eshop.mvp.ui.activity.EaseChatActivity;
 import com.eshop.mvp.ui.activity.MainActivity;
+import com.eshop.mvp.utils.Constant;
 import com.eshop.mvp.utils.LoginUtils;
 import com.eshop.mvp.utils.PicChooserHelper;
+import com.hyphenate.chat.EMConversation;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -169,7 +172,21 @@ public class RefundStateActivity extends BaseSupportActivity<AfterSalePresenter>
                 break;
 
             case R.id.phone2:
-                requestPermissions(1);
+//                requestPermissions(1);
+                // start chat acitivity
+                Intent intent2 = new Intent(this, EaseChatActivity.class);
+//                if(conversation.isGroup()){
+//                    if(conversation.getType() == EMConversation.EMConversationType.ChatRoom){
+//                        // it's group chat
+//                        intent2.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_CHATROOM);
+//                    }else{
+//                        intent2.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_GROUP);
+//                    }
+//
+//                }
+                // it's single chat
+                intent2.putExtra(Constant.EXTRA_USER_ID, "username");
+                startActivity(intent2);
                 break;
 
         }

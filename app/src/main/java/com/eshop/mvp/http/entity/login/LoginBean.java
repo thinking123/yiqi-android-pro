@@ -30,6 +30,10 @@ public class LoginBean {
      * state : 1
      * storeId : 1
      * token :
+     *
+     *
+     * //环信Id
+     * huanxinId
      */
 
     private String applyMsg;
@@ -52,6 +56,23 @@ public class LoginBean {
     private int state;
     private int storeId;
     private String token;
+    //环信Id
+    private String huanxinId;
+
+    public String getHuanxinId() {
+        return huanxinId;
+    }
+
+    public void setHuanxinId(String huanxinId) {
+        this.huanxinId = huanxinId;
+    }
+//    public String getHuanxinId(){
+//        return huanxinId;
+//    }
+//
+//    public void setHuanxinId(String id){
+//        huanxinId = id;
+//    }
 
     public String getApplyMsg() {
         return applyMsg;

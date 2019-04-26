@@ -25,6 +25,16 @@ public class AfterSaleStore {
     private String refundReason;
     private String totalPrice;
     private List<String> voucher;
+    //环信Id
+    private String huanxinId;
+
+    public String getHuanxinId() {
+        return huanxinId;
+    }
+
+    public void setHuanxinId(String huanxinId) {
+        this.huanxinId = huanxinId;
+    }
 
     public String getApplyTime() {
         return applyTime;

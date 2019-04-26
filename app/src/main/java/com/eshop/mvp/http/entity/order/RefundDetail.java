@@ -23,6 +23,17 @@ public class RefundDetail {
     private String storePhone;
     private String totalPrice;
 
+    //环信Id
+    private String huanxinId;
+
+    public String getHuanxinId() {
+        return huanxinId;
+    }
+
+    public void setHuanxinId(String huanxinId) {
+        this.huanxinId = huanxinId;
+    }
+
     public String getApplyTime() {
         return applyTime;
     }
