@@ -5,6 +5,8 @@ import com.eshop.mvp.http.entity.MyBaseResponse;
 import com.eshop.mvp.http.entity.login.LoginBean;
 import com.eshop.mvp.http.entity.login.UserInfoBean;
 import com.eshop.mvp.model.UserModel;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BasePresenter;
 import com.eshop.mvp.contract.LoginContract;
@@ -22,6 +24,7 @@ import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import timber.log.Timber;
 
 /**
  * @Author shijun
@@ -56,6 +59,27 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
                 });
     }
 
+    public void loginHuanXin(String id , String pw ){
+        EMClient.getInstance().login(id, pw, new EMCallBack() {
+            @Override
+            public void onSuccess() {
+                Timber.e("huanxin login: onSuccess");
+                // ** manually load all local groups and conversation
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                mRootView.showMessage("登入聊天系统失败:" + s);
+            }
+
+            @Override
+            public void onProgress(int i, String s) {
+
+            }
+        });
+    }
     public void sendSms(String phone) {
         mModel.sendSms(phone)
                 .compose(RxUtils.applySchedulers(mRootView))

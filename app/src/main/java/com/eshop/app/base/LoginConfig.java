@@ -20,4 +20,6 @@ public class LoginConfig {
     public static final String COLLECTSTORENUM = "collectStoreNum";
     public static final String COLLECTPRODUCTNUM = "collectProductNum";
 
+    public static final String HUANXINID = "huanxinId";
+
 }

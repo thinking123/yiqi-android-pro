@@ -94,6 +94,7 @@ public class LoginUtils {
         SpUtils.put(context,LoginConfig.ISREGISTER,BaseApp.loginBean.getIsRegister());
         SpUtils.put(context,LoginConfig.COLLECTSTORENUM,BaseApp.loginBean.getCollectStoreNum());
         SpUtils.put(context,LoginConfig.COLLECTPRODUCTNUM,BaseApp.loginBean.getCollectProductNum());
+        SpUtils.put(context,LoginConfig.HUANXINID,BaseApp.loginBean.getHuanxinId());
 
     }
 
