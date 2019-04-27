@@ -19,6 +19,8 @@ public interface MainContract  {
         void connectRongIM(TokenBean data);
 
         void userInfo(UserBean data);
+
+        void loginHuanxinResult();
     }
 
     interface Model extends IModel {

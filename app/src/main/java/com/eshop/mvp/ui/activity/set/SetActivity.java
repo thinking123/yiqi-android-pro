@@ -62,6 +62,11 @@ public class SetActivity extends BaseSupportActivity<LoginPresenter> implements 
     Button logout;
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)

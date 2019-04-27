@@ -68,6 +68,11 @@ public class UserInfoActivity extends BaseSupportActivity<LoginPresenter> implem
     private String head_url;
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)

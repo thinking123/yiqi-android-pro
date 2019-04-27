@@ -65,6 +65,11 @@ public class RegisterActivity extends BaseSupportActivity<LoginPresenter> implem
     String codes;
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)

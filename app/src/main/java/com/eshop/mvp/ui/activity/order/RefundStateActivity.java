@@ -185,7 +185,7 @@ public class RefundStateActivity extends BaseSupportActivity<AfterSalePresenter>
 //
 //                }
                 // it's single chat
-                intent2.putExtra(Constant.EXTRA_USER_ID, "username");
+                intent2.putExtra(Constant.EXTRA_USER_ID, refundDetail.getHuanxinId());
                 startActivity(intent2);
                 break;
 

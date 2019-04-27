@@ -22,4 +22,6 @@ public class LoginConfig {
 
     public static final String HUANXINID = "huanxinId";
 
+    public static final String HUAMXINPASSWORD = "123456";
+
 }

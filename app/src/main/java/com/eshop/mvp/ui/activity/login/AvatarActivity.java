@@ -67,6 +67,11 @@ public class AvatarActivity extends BaseSupportActivity<LoginPresenter> implemen
     private String password;
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)

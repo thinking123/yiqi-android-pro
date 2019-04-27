@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.eshop.R;
 import com.eshop.app.base.BaseApp;
 import com.eshop.app.base.BaseSupportActivity;
+import com.eshop.app.base.LoginConfig;
 import com.eshop.di.component.DaggerLoginComponent;
 import com.eshop.di.module.LoginModule;
 import com.eshop.mvp.contract.LoginContract;
@@ -58,6 +59,12 @@ public class ForgetPasswordActivity extends BaseSupportActivity<LoginPresenter> 
     Button btnRegister;
 
     @Override
+    public void loginHuanxinResult() {
+        startActivity(new Intent(mContext, MainActivity.class));
+        finish();
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)
@@ -86,8 +93,11 @@ public class ForgetPasswordActivity extends BaseSupportActivity<LoginPresenter> 
         //Timber.e((String) SpUtils.get(mContext, AppConstant.Api.TOKEN, ""));
         BaseApp.loginBean = msg;
         LoginUtils.saveLogin(this);
-        startActivity(new Intent(mContext, MainActivity.class));
-        finish();
+        if(mPresenter != null){
+            mPresenter.loginHuanXin(msg.getHuanxinId() , LoginConfig.HUAMXINPASSWORD);
+        }
+//        startActivity(new Intent(mContext, MainActivity.class));
+//        finish();
     }
 
     @Override

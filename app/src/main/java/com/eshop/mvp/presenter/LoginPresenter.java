@@ -1,6 +1,7 @@
 package com.eshop.mvp.presenter;
 
 import com.eshop.app.base.BaseApp;
+import com.eshop.huanxin.DemoHelper;
 import com.eshop.mvp.http.entity.MyBaseResponse;
 import com.eshop.mvp.http.entity.login.LoginBean;
 import com.eshop.mvp.http.entity.login.UserInfoBean;
@@ -67,11 +68,16 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
                 // ** manually load all local groups and conversation
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
+                DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
+
+                mRootView.loginHuanxinResult();
             }
 
             @Override
             public void onError(int i, String s) {
                 mRootView.showMessage("登入聊天系统失败:" + s);
+
+                mRootView.loginHuanxinResult();
             }
 
             @Override

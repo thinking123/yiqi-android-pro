@@ -8,11 +8,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.eshop.app.base.BaseApp;
+import com.eshop.app.base.LoginConfig;
+import com.eshop.huanxin.DemoHelper;
 import com.eshop.mvp.ui.fragment.CartHomeFragment;
 import com.eshop.mvp.ui.fragment.CategoryAllFragment;
 import com.eshop.mvp.ui.fragment.ConversationListFragment;
 import com.eshop.mvp.ui.fragment.HomeFragment;
 import com.eshop.mvp.ui.fragment.HotLineFragment;
+import com.eshop.mvp.utils.LoginUtils;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.jaeger.library.StatusBarUtil;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
@@ -45,7 +50,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import me.yokeyword.fragmentation.ISupportFragment;
 import timber.log.Timber;
 
-public class MainActivity extends BaseSupportActivity<MainPresenter> implements MainContract.View {//, IUnReadMessageObserver {
+public class  MainActivity extends BaseSupportActivity<MainPresenter> implements MainContract.View {//, IUnReadMessageObserver {
 
     @BindView(R.id.bottom_bar)
     BottomBar mBottomBar;
@@ -148,6 +153,14 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
 
     }
 
+
+    @Override
+    public void loginHuanxinResult() {
+        int position = 1;
+        showHideFragment(mFragments[position], mFragments[position]);
+        BaseApp.tabindex = position;
+    }
+
     private void initBottomBar() {
         addFragment();
         homeTab = new BottomBarTab(mContext, R.drawable.home, "首页");
@@ -164,9 +177,25 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position, int prePosition) {
-                showHideFragment(mFragments[position], mFragments[prePosition]);
-                BaseApp.tabindex = position;
+                if (position == 1) {
+                    if(LoginUtils.isLogin(MainActivity.this)){
+                        if(DemoHelper.getInstance().isLoggedIn()){
+                            showHideFragment(mFragments[position], mFragments[prePosition]);
+                            BaseApp.tabindex = position;
+                        }else{
+                            if(mPresenter != null){
+                                mPresenter.loginHuanXin(BaseApp.loginBean.getHuanxinId() ,
+                                        LoginConfig.HUAMXINPASSWORD);
+                            }
+                        }
+                    }else {
+                        LoginUtils.login(MainActivity.this);
+                    }
 
+                }else{
+                    showHideFragment(mFragments[position], mFragments[prePosition]);
+                    BaseApp.tabindex = position;
+                }
             }
 
             @Override
@@ -224,7 +253,7 @@ public class MainActivity extends BaseSupportActivity<MainPresenter> implements 
 
     @Override
     public void showMessage(@NonNull String message) {
-
+        ArmsUtils.snackbarText(message);
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.eshop.app.base.BaseApp;
+import com.eshop.app.base.LoginConfig;
 import com.eshop.mvp.http.entity.AppData;
 import com.eshop.mvp.http.entity.login.LoginBean;
 import com.eshop.mvp.http.entity.login.UserInfoBean;
@@ -151,12 +152,21 @@ public class LoginActivity extends BaseSupportActivity<LoginPresenter> implement
     }
 
     @Override
+    public void loginHuanxinResult() {
+        startActivity(new Intent(mContext, MainActivity.class));
+        finish();
+    }
+
+    @Override
     public void loginResult(LoginBean msg) {
         BaseApp.loginBean = msg;
         LoginUtils.saveLogin(this);
 
-        startActivity(new Intent(mContext, MainActivity.class));
-        finish();
+        if(mPresenter != null){
+            mPresenter.loginHuanXin(msg.getHuanxinId() , LoginConfig.HUAMXINPASSWORD);
+        }
+//        startActivity(new Intent(mContext, MainActivity.class));
+//        finish();
     }
 
     @Override

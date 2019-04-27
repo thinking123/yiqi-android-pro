@@ -34,6 +34,11 @@ public class SplashActivity extends BaseSupportActivity<LoginPresenter> implemen
     }
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public int initView(@Nullable Bundle savedInstanceState) {
         return 0;
     }

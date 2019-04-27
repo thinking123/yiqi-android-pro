@@ -62,6 +62,11 @@ public class BindActivity extends BaseSupportActivity<LoginPresenter> implements
     private String unionid;
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)

@@ -57,6 +57,11 @@ public class SetPasswordActivity extends BaseSupportActivity<LoginPresenter> imp
     String codes;
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
         DaggerLoginComponent.builder()
                 .appComponent(appComponent)

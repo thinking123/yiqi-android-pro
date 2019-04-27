@@ -2,6 +2,9 @@ package com.eshop.mvp.presenter;
 
 import android.net.Uri;
 
+import com.eshop.huanxin.DemoHelper;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BasePresenter;
 import com.eshop.mvp.contract.MainContract;
@@ -17,6 +20,7 @@ import javax.inject.Inject;
 //import io.rong.imlib.model.UserInfo;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+import timber.log.Timber;
 
 /**
  * @Author 张迁-zhangqian
@@ -53,7 +57,32 @@ public class MainPresenter extends BasePresenter<MainContract.Model, MainContrac
                     }
                 });
     }
+    public void loginHuanXin(String id , String pw ){
+        EMClient.getInstance().login(id, pw, new EMCallBack() {
+            @Override
+            public void onSuccess() {
+                Timber.e("huanxin login: onSuccess");
+                // ** manually load all local groups and conversation
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
 
+                mRootView.loginHuanxinResult();
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                mRootView.showMessage("登入聊天系统失败:" + s);
+
+                mRootView.loginHuanxinResult();
+            }
+
+            @Override
+            public void onProgress(int i, String s) {
+
+            }
+        });
+    }
     public void getUserInfo() {
         userModel.getUserInfo()
                 .compose(RxUtils.applySchedulers(mRootView))

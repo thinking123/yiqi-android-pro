@@ -37,6 +37,7 @@ public interface LoginContract {
         void checkCodeSuccess();
 
 
+        void loginHuanxinResult();
     }
 
     interface Model extends IModel {
