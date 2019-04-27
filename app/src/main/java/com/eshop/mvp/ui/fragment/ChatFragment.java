@@ -16,6 +16,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Toast;
 
+import com.eshop.R;
+import com.eshop.huanxin.DemoHelper;
+import com.eshop.huanxin.EmojiconExampleGroupData;
+import com.eshop.huanxin.domain.RobotUser;
+import com.eshop.huanxin.widget.ChatRowConferenceInvitePresenter;
+import com.eshop.huanxin.widget.ChatRowLivePresenter;
+import com.eshop.huanxin.widget.EaseChatRecallPresenter;
+import com.eshop.huanxin.widget.EaseChatVoiceCallPresenter;
 import com.eshop.mvp.utils.Constant;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMGroup;
@@ -70,26 +78,24 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        boolean isRoaminng = false;
-        return super.onCreateView(inflater, container, savedInstanceState,isRoaminng);
-//                DemoHelper.getInstance().getModel().isMsgRoaming() && (chatType != EaseConstant.CHATTYPE_CHATROOM));
+        return super.onCreateView(inflater, container, savedInstanceState,
+                DemoHelper.getInstance().getModel().isMsgRoaming() && (chatType != EaseConstant.CHATTYPE_CHATROOM));
     }
 
     @Override
     protected boolean turnOnTyping() {
-        return  false;
-//        return DemoHelper.getInstance().getModel().isShowMsgTyping();
+        return DemoHelper.getInstance().getModel().isShowMsgTyping();
     }
 
     @Override
     protected void setUpView() {
         setChatFragmentHelper(this);
-//        if (chatType == Constant.CHATTYPE_SINGLE) {
-//            Map<String,RobotUser> robotMap = DemoHelper.getInstance().getRobotList();
-//            if(robotMap!=null && robotMap.containsKey(toChatUsername)){
-//                isRobot = true;
-//            }
-//        }
+        if (chatType == Constant.CHATTYPE_SINGLE) {
+            Map<String, RobotUser> robotMap = DemoHelper.getInstance().getRobotList();
+            if(robotMap!=null && robotMap.containsKey(toChatUsername)){
+                isRobot = true;
+            }
+        }
         super.setUpView();
         // set click listener
         titleBar.setLeftLayoutClickListener(new View.OnClickListener() {
@@ -103,16 +109,16 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
                 onBackPressed();
             }
         });
-//        ((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(EmojiconExampleGroupData.getData());
+        ((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(EmojiconExampleGroupData.getData());
         if(chatType == EaseConstant.CHATTYPE_GROUP){
             inputMenu.getPrimaryMenu().getEditText().addTextChangedListener(new TextWatcher() {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if(count == 1 && "@".equals(String.valueOf(s.charAt(start)))){
+//                    if(count == 1 && "@".equals(String.valueOf(s.charAt(start)))){
 //                        startActivityForResult(new Intent(getActivity(), PickAtUserActivity.class).
 //                                putExtra("groupId", toChatUsername), REQUEST_CODE_SELECT_AT_USER);
-                    }
+//                    }
                 }
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -131,22 +137,22 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
         //use the menu in base class
         super.registerExtendMenuItem();
         //extend menu items
-//        inputMenu.registerExtendMenuItem(R.string.attach_video, R.drawable.em_chat_video_selector, ITEM_VIDEO, extendMenuItemClickListener);
-//        inputMenu.registerExtendMenuItem(R.string.attach_file, R.drawable.em_chat_file_selector, ITEM_FILE, extendMenuItemClickListener);
-//        if(chatType == Constant.CHATTYPE_SINGLE){
-//            inputMenu.registerExtendMenuItem(R.string.attach_voice_call, R.drawable.em_chat_voice_call_selector, ITEM_VOICE_CALL, extendMenuItemClickListener);
-//            inputMenu.registerExtendMenuItem(R.string.attach_video_call, R.drawable.em_chat_video_call_selector, ITEM_VIDEO_CALL, extendMenuItemClickListener);
-//        } else if (chatType == Constant.CHATTYPE_GROUP) { // 音视频会议
-//            inputMenu.registerExtendMenuItem(R.string.voice_and_video_conference, R.drawable.em_chat_video_call_selector, ITEM_CONFERENCE_CALL, extendMenuItemClickListener);
-//            inputMenu.registerExtendMenuItem(R.string.title_live, R.drawable.em_chat_video_call_selector, ITEM_LIVE, extendMenuItemClickListener);
-//        }
+        inputMenu.registerExtendMenuItem(R.string.attach_video, R.drawable.em_chat_video_selector, ITEM_VIDEO, extendMenuItemClickListener);
+        inputMenu.registerExtendMenuItem(R.string.attach_file, R.drawable.em_chat_file_selector, ITEM_FILE, extendMenuItemClickListener);
+        if(chatType == Constant.CHATTYPE_SINGLE){
+            inputMenu.registerExtendMenuItem(R.string.attach_voice_call, R.drawable.em_chat_voice_call_selector, ITEM_VOICE_CALL, extendMenuItemClickListener);
+            inputMenu.registerExtendMenuItem(R.string.attach_video_call, R.drawable.em_chat_video_call_selector, ITEM_VIDEO_CALL, extendMenuItemClickListener);
+        } else if (chatType == Constant.CHATTYPE_GROUP) { // 音视频会议
+            inputMenu.registerExtendMenuItem(R.string.voice_and_video_conference, R.drawable.em_chat_video_call_selector, ITEM_CONFERENCE_CALL, extendMenuItemClickListener);
+            inputMenu.registerExtendMenuItem(R.string.title_live, R.drawable.em_chat_video_call_selector, ITEM_LIVE, extendMenuItemClickListener);
+        }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_CONTEXT_MENU) {
-            switch (resultCode) {
+//            switch (resultCode) {
 //                case ContextMenuActivity.RESULT_CODE_COPY: // copy
 //                    clipboard.setPrimaryClip(ClipData.newPlainText(null,
 //                            ((EMTextMessageBody) contextMenuMessage.getBody()).getMessage()));
@@ -195,7 +201,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 //
 //                default:
 //                    break;
-            }
+//            }
         }
         if(resultCode == Activity.RESULT_OK){
             switch (requestCode) {
@@ -262,18 +268,18 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 
     @Override
     public void onEnterToChatDetails() {
-//        if (chatType == Constant.CHATTYPE_GROUP) {
-//            EMGroup group = EMClient.getInstance().groupManager().getGroup(toChatUsername);
-//            if (group == null) {
-//                Toast.makeText(getActivity(), R.string.gorup_not_found, Toast.LENGTH_SHORT).show();
-//                return;
-//            }
+        if (chatType == Constant.CHATTYPE_GROUP) {
+            EMGroup group = EMClient.getInstance().groupManager().getGroup(toChatUsername);
+            if (group == null) {
+                Toast.makeText(getActivity(),"not found", Toast.LENGTH_SHORT).show();
+                return;
+            }
 //            startActivityForResult(
 //                    (new Intent(getActivity(), GroupDetailsActivity.class).putExtra("groupId", toChatUsername)),
 //                    REQUEST_CODE_GROUP_DETAIL);
-//        }else if(chatType == Constant.CHATTYPE_CHATROOM){
+        }else if(chatType == Constant.CHATTYPE_CHATROOM){
 //            startActivityForResult(new Intent(getActivity(), ChatRoomDetailsActivity.class).putExtra("roomId", toChatUsername), REQUEST_CODE_GROUP_DETAIL);
-//        }
+        }
     }
 
     @Override
@@ -324,12 +330,12 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
             case ITEM_VIDEO_CALL:
                 startVideoCall();
                 break;
-//            case ITEM_CONFERENCE_CALL:
+            case ITEM_CONFERENCE_CALL:
 //                ConferenceActivity.startConferenceCall(getActivity(), toChatUsername);
-//                break;
-//            case ITEM_LIVE:
+                break;
+            case ITEM_LIVE:
 //                LiveActivity.startLive(getContext(), toChatUsername);
-//                break;
+                break;
             default:
                 break;
         }
@@ -352,28 +358,28 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
      * make a voice call
      */
     protected void startVoiceCall() {
-//        if (!EMClient.getInstance().isConnected()) {
-//            Toast.makeText(getActivity(), R.string.not_connect_to_server, Toast.LENGTH_SHORT).show();
-//        } else {
+        if (!EMClient.getInstance().isConnected()) {
+            Toast.makeText(getActivity(), "not connected", Toast.LENGTH_SHORT).show();
+        } else {
 //            startActivity(new Intent(getActivity(), VoiceCallActivity.class).putExtra("username", toChatUsername)
 //                    .putExtra("isComingCall", false));
-//            // voiceCallBtn.setEnabled(false);
-//            inputMenu.hideExtendMenuContainer();
-//        }
+            // voiceCallBtn.setEnabled(false);
+            inputMenu.hideExtendMenuContainer();
+        }
     }
 
     /**
      * make a video call
      */
     protected void startVideoCall() {
-//        if (!EMClient.getInstance().isConnected())
-//            Toast.makeText(getActivity(), R.string.not_connect_to_server, Toast.LENGTH_SHORT).show();
-//        else {
+        if (!EMClient.getInstance().isConnected())
+            Toast.makeText(getActivity(),"not connected", Toast.LENGTH_SHORT).show();
+        else {
 //            startActivity(new Intent(getActivity(), VideoCallActivity.class).putExtra("username", toChatUsername)
 //                    .putExtra("isComingCall", false));
-//            // videoCallBtn.setEnabled(false);
-//            inputMenu.hideExtendMenuContainer();
-//        }
+            // videoCallBtn.setEnabled(false);
+            inputMenu.hideExtendMenuContainer();
+        }
     }
 
     /**
@@ -385,7 +391,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
         public int getCustomChatRowTypeCount() {
             //here the number is the message type in EMMessage::Type
             //which is used to count the number of different chat row
-            return 14;
+            return 4;
         }
 
         @Override
@@ -412,23 +418,23 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 
         @Override
         public EaseChatRowPresenter getCustomChatRow(EMMessage message, int position, BaseAdapter adapter) {
-//            if(message.getType() == EMMessage.Type.TXT){
-//                // voice call or video call
-//                if (message.getBooleanAttribute(Constant.MESSAGE_ATTR_IS_VOICE_CALL, false) ||
-//                        message.getBooleanAttribute(Constant.MESSAGE_ATTR_IS_VIDEO_CALL, false)){
-//                    EaseChatRowPresenter presenter = new EaseChatVoiceCallPresenter();
-//                    return presenter;
-//                }
-//                //recall message
-//                else if(message.getBooleanAttribute(Constant.MESSAGE_TYPE_RECALL, false)){
-//                    EaseChatRowPresenter presenter = new EaseChatRecallPresenter();
-//                    return presenter;
-//                } else if (!"".equals(message.getStringAttribute(Constant.MSG_ATTR_CONF_ID,""))) {
-//                    return new ChatRowConferenceInvitePresenter();
-//                } else if (Constant.OP_INVITE.equals(message.getStringAttribute(Constant.EM_CONFERENCE_OP, ""))) {
-//                    return new ChatRowLivePresenter();
-//                }
-//            }
+            if(message.getType() == EMMessage.Type.TXT){
+                // voice call or video call
+                if (message.getBooleanAttribute(Constant.MESSAGE_ATTR_IS_VOICE_CALL, false) ||
+                        message.getBooleanAttribute(Constant.MESSAGE_ATTR_IS_VIDEO_CALL, false)){
+                    EaseChatRowPresenter presenter = new EaseChatVoiceCallPresenter();
+                    return presenter;
+                }
+                //recall message
+                else if(message.getBooleanAttribute(Constant.MESSAGE_TYPE_RECALL, false)){
+                    EaseChatRowPresenter presenter = new EaseChatRecallPresenter();
+                    return presenter;
+                } else if (!"".equals(message.getStringAttribute(Constant.MSG_ATTR_CONF_ID,""))) {
+                    return new ChatRowConferenceInvitePresenter();
+                } else if (Constant.OP_INVITE.equals(message.getStringAttribute(Constant.EM_CONFERENCE_OP, ""))) {
+                    return new ChatRowLivePresenter();
+                }
+            }
             return null;
         }
 

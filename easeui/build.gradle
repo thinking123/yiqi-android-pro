@@ -32,7 +32,8 @@ dependencies {
 //    //api project(':hyphenatechatsdk')
 	//api 'com.hyphenate:hyphenate-sdk:3.5.3'
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.github.bumptech.glide:glide:3.7.0'
+    //版本和app glide版本
+    api 'com.github.bumptech.glide:glide:4.6.1'
 
     api 'com.google.android.gms:play-services-base:11.4.0'
 
