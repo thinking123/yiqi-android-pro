@@ -66,6 +66,9 @@ public final class GlobalConfiguration implements ConfigModule {
             builder.printHttpLogLevel(RequestInterceptor.Level.NONE);
         }
         Timber.e("applyOptions");
+//        if(BuildConfig.DEBUG){
+//            Timber.plant(new Timber.DebugTree());
+//        }
         //使用builder可以为框架配置一些配置信息
         builder.baseurl(Api.APP_DOMAIN)
                 .retrofitConfiguration(new MyRetrofitConfiguration())

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import com.eshop.app.base.BaseApp;
 import com.eshop.di.component.DaggerLoginComponent;
 import com.eshop.di.module.LoginModule;
+import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.mvp.contract.LoginContract;
 import com.eshop.mvp.http.entity.login.LoginBean;
 import com.eshop.mvp.http.entity.login.UserInfoBean;
@@ -20,6 +21,8 @@ import com.eshop.app.base.BaseSupportActivity;
 import com.eshop.mvp.ui.activity.MainActivity;
 import com.eshop.mvp.utils.AppConstant;
 import com.eshop.mvp.utils.SpUtils;
+
+import timber.log.Timber;
 
 public class SplashActivity extends BaseSupportActivity<LoginPresenter> implements LoginContract.View {
 
@@ -66,7 +69,17 @@ public class SplashActivity extends BaseSupportActivity<LoginPresenter> implemen
             //finish();
         }
 
-        new Handler().postDelayed(this::enterHomeActivity, 200);
+
+        chatUtils.loadAll(new chatUtils.Callback() {
+            @Override
+            public void onSuccess() {
+                Timber.e("callback loadAll onSuccess");
+                runOnUiThread(()->{
+                    new Handler().postDelayed(SplashActivity.this::enterHomeActivity, 200);
+                });
+            }
+        });
+
     }
 
     private void enterHomeActivity() {

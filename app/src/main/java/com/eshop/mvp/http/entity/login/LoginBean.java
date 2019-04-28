@@ -58,6 +58,16 @@ public class LoginBean {
     private String token;
     //环信Id
     private String huanxinId;
+    //环信 聊天室Id
+    private String chatRoomId;
+
+    public String getChatRoomId() {
+        return chatRoomId;
+    }
+
+    public void setChatRoomId(String chatRoomId) {
+        this.chatRoomId = chatRoomId;
+    }
 
     public String getHuanxinId() {
         return huanxinId;

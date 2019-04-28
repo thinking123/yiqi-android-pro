@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -109,6 +110,9 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
                 onBackPressed();
             }
         });
+
+//        titleBar.setBackgroundColor(ContextCompat.getColor(getContext()) , R.color.normal_back_ground);
+
         ((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(EmojiconExampleGroupData.getData());
         if(chatType == EaseConstant.CHATTYPE_GROUP){
             inputMenu.getPrimaryMenu().getEditText().addTextChangedListener(new TextWatcher() {

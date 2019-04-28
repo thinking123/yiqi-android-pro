@@ -13,6 +13,7 @@ import com.eshop.huanxin.DemoHelper;
 import com.eshop.mvp.ui.fragment.CartHomeFragment;
 import com.eshop.mvp.ui.fragment.CategoryAllFragment;
 import com.eshop.mvp.ui.fragment.ConversationListFragment;
+import com.eshop.mvp.ui.fragment.ConversationListWrapFragment;
 import com.eshop.mvp.ui.fragment.HomeFragment;
 import com.eshop.mvp.ui.fragment.HotLineFragment;
 import com.eshop.mvp.utils.LoginUtils;
@@ -162,6 +163,8 @@ public class  MainActivity extends BaseSupportActivity<MainPresenter> implements
     }
 
     private void initBottomBar() {
+        Timber.e("initBottomBar main");
+        Timber.i("initBottomBar main sdf");
         addFragment();
         homeTab = new BottomBarTab(mContext, R.drawable.home, "首页");
         categoryTab = new BottomBarTab(mContext, R.drawable.chatterbox, "消息");
@@ -215,7 +218,8 @@ public class  MainActivity extends BaseSupportActivity<MainPresenter> implements
         if (recommendFragment == null) {
             mFragments[0] = new HomeFragment();
             //            mFragments[1] = new HotLineFragment();
-            mFragments[1] = new ConversationListFragment();
+            mFragments[1] = new ConversationListWrapFragment();
+//            mFragments[1] = new ConversationListFragment();
             mFragments[2] = new CategoryAllFragment();
             mFragments[3] = new CartHomeFragment();
             mFragments[4] = new SelfFragment();
@@ -223,7 +227,7 @@ public class  MainActivity extends BaseSupportActivity<MainPresenter> implements
         } else {
             mFragments[0] = findFragment(HomeFragment.class);
             //            mFragments[1] = findFragment(HotLineFragment.class);
-            mFragments[1] = findFragment(ConversationListFragment.class);
+            mFragments[1] = findFragment(ConversationListWrapFragment.class);
             mFragments[2] = findFragment(CategoryAllFragment.class);
             mFragments[3] = findFragment(CartHomeFragment.class);
             mFragments[4] = findFragment(SelfFragment.class);

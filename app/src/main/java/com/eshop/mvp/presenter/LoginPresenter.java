@@ -2,12 +2,15 @@ package com.eshop.mvp.presenter;
 
 import com.eshop.app.base.BaseApp;
 import com.eshop.huanxin.DemoHelper;
+import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.mvp.http.entity.MyBaseResponse;
 import com.eshop.mvp.http.entity.login.LoginBean;
 import com.eshop.mvp.http.entity.login.UserInfoBean;
 import com.eshop.mvp.model.UserModel;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMGroupManager;
+import com.hyphenate.exceptions.HyphenateException;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BasePresenter;
 import com.eshop.mvp.contract.LoginContract;
@@ -60,15 +63,35 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
                 });
     }
 
+//    private void joinHuanXinDefaultGroup(String chatRoomId){
+//        EMGroupManager emGroupManager = EMClient.getInstance().groupManager();
+//
+//        try {
+//            if(emGroupManager.getGroup(chatRoomId) == null){
+//                Timber.e("not join default group");
+//                emGroupManager.joinGroup(chatRoomId);
+//            }else{
+//                Timber.e("had joined default group");
+//            }
+//        }catch (HyphenateException e){
+//            Timber.e("join default group error : " + e.getMessage());
+//        }
+//
+////        EMGroupManager.getInstance().joinGroup(groupid);
+//    }
     public void loginHuanXin(String id , String pw ){
         EMClient.getInstance().login(id, pw, new EMCallBack() {
             @Override
             public void onSuccess() {
                 Timber.e("huanxin login: onSuccess");
+
+                chatUtils.joinHuanXinDefaultGroup(BaseApp.loginBean.getChatRoomId());
+
                 // ** manually load all local groups and conversation
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
                 DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
+
 
                 mRootView.loginHuanxinResult();
             }

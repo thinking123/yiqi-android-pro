@@ -95,6 +95,7 @@ public class LoginUtils {
         SpUtils.put(context,LoginConfig.COLLECTSTORENUM,BaseApp.loginBean.getCollectStoreNum());
         SpUtils.put(context,LoginConfig.COLLECTPRODUCTNUM,BaseApp.loginBean.getCollectProductNum());
         SpUtils.put(context,LoginConfig.HUANXINID,BaseApp.loginBean.getHuanxinId());
+        SpUtils.put(context,LoginConfig.CHATROOMID,BaseApp.loginBean.getChatRoomId());
 
     }
 
