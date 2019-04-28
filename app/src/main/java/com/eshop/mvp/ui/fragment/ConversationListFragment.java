@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eshop.R;
+import com.eshop.huanxin.Constant;
+import com.eshop.huanxin.db.InviteMessgeDao;
+import com.eshop.mvp.ui.activity.EaseChatActivity;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMConversation.EMConversationType;
@@ -63,19 +66,19 @@ public class ConversationListFragment extends EaseConversationListFragment imple
                     Toast.makeText(getActivity(), R.string.Cant_chat_with_yourself, Toast.LENGTH_SHORT).show();
                 else {
                     // start chat acitivity
-//                    Intent intent = new Intent(getActivity(), ChatActivity.class);
-//                    if(conversation.isGroup()){
-//                        if(conversation.getType() == EMConversationType.ChatRoom){
-//                            // it's group chat
-//                            intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_CHATROOM);
-//                        }else{
-//                            intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_GROUP);
-//                        }
-//
-//                    }
-//                    // it's single chat
-//                    intent.putExtra(Constant.EXTRA_USER_ID, username);
-//                    startActivity(intent);
+                    Intent intent = new Intent(getActivity(), EaseChatActivity.class);
+                    if(conversation.isGroup()){
+                        if(conversation.getType() == EMConversationType.ChatRoom){
+                            // it's group chat
+                            intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_CHATROOM);
+                        }else{
+                            intent.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_GROUP);
+                        }
+
+                    }
+                    // it's single chat
+                    intent.putExtra(Constant.EXTRA_USER_ID, username);
+                    startActivity(intent);
                 }
             }
         });
@@ -116,8 +119,8 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         try {
             // delete conversation
             EMClient.getInstance().chatManager().deleteConversation(tobeDeleteCons.conversationId(), deleteMessage);
-//            InviteMessgeDao inviteMessgeDao = new InviteMessgeDao(getActivity());
-//            inviteMessgeDao.deleteMessage(tobeDeleteCons.conversationId());
+            InviteMessgeDao inviteMessgeDao = new InviteMessgeDao(getActivity());
+            inviteMessgeDao.deleteMessage(tobeDeleteCons.conversationId());
             // To delete the native stored adked users in this conversation.
             if (deleteMessage) {
                 EaseDingMessageHelper.get().delete(tobeDeleteCons);
