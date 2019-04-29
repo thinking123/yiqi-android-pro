@@ -23,6 +23,8 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import okhttp3.MediaType;
@@ -63,6 +65,11 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
                 });
     }
 
+
+    public void loadHuanXinData(){
+
+    }
+
 //    private void joinHuanXinDefaultGroup(String chatRoomId){
 //        EMGroupManager emGroupManager = EMClient.getInstance().groupManager();
 //
@@ -80,34 +87,57 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
 ////        EMGroupManager.getInstance().joinGroup(groupid);
 //    }
     public void loginHuanXin(String id , String pw ){
-        EMClient.getInstance().login(id, pw, new EMCallBack() {
+        chatUtils.loginHuanXin(id ,pw).subscribe(new Observer<Void>() {
             @Override
-            public void onSuccess() {
-                Timber.e("huanxin login: onSuccess");
+            public void onSubscribe(Disposable d) {
 
-                chatUtils.joinHuanXinDefaultGroup(BaseApp.loginBean.getChatRoomId());
+            }
 
-                // ** manually load all local groups and conversation
-                EMClient.getInstance().groupManager().loadAllGroups();
-                EMClient.getInstance().chatManager().loadAllConversations();
-                DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
+            @Override
+            public void onNext(Void aVoid) {
+                Timber.i("login huan xin onext");
+            }
 
+            @Override
+            public void onError(Throwable e) {
+                mRootView.showMessage("登入聊天系统失败:" + e.getMessage());
 
                 mRootView.loginHuanxinResult();
             }
 
             @Override
-            public void onError(int i, String s) {
-                mRootView.showMessage("登入聊天系统失败:" + s);
-
+            public void onComplete() {
                 mRootView.loginHuanxinResult();
-            }
-
-            @Override
-            public void onProgress(int i, String s) {
-
             }
         });
+//        EMClient.getInstance().login(id, pw, new EMCallBack() {
+//            @Override
+//            public void onSuccess() {
+//                Timber.e("huanxin login: onSuccess");
+//
+//                chatUtils.joinHuanXinDefaultGroup(BaseApp.loginBean.getChatRoomId());
+//
+//                // ** manually load all local groups and conversation
+//                EMClient.getInstance().groupManager().loadAllGroups();
+//                EMClient.getInstance().chatManager().loadAllConversations();
+//                DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
+//
+//
+//                mRootView.loginHuanxinResult();
+//            }
+//
+//            @Override
+//            public void onError(int i, String s) {
+//                mRootView.showMessage("登入聊天系统失败:" + s);
+//
+//                mRootView.loginHuanxinResult();
+//            }
+//
+//            @Override
+//            public void onProgress(int i, String s) {
+//
+//            }
+//        });
     }
     public void sendSms(String phone) {
         mModel.sendSms(phone)

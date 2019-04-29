@@ -7,7 +7,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="btn_gray_normal">#c0c0c0</color>
 
-
+    <color name="top_bar_normal_bg">#00acff</color>
+    <color name="grid_state_pressed">#1Affffff</color>
+    <color name="grid_state_focused">#80000000</color>
     <color name="text_red_eb3636">#eb3636</color>
     <color name="text_black_211">#211d1d</color>
     <color name="text_black_33">#333333</color>

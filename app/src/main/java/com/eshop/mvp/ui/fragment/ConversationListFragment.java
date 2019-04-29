@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.eshop.R;
 import com.eshop.huanxin.Constant;
 import com.eshop.huanxin.db.InviteMessgeDao;
+import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.mvp.ui.activity.EaseChatActivity;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
@@ -67,10 +68,12 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         // register context menu
         registerForContextMenu(conversationListView);
 
-        titleBar.setBackgroundColor(ContextCompat.getColor(getContext() ,R.color.normal_back_ground));
-        TextView titleView = (TextView) titleBar.findViewById(com.hyphenate.easeui.R.id.title);
-        titleView.setTextColor(ContextCompat.getColor(getContext() ,R.color.text_black_33));
+//        titleBar.setBackgroundColor(ContextCompat.getColor(getContext() ,R.color.normal_back_ground));
+//        TextView titleView = (TextView) titleBar.findViewById(com.hyphenate.easeui.R.id.title);
+//        titleView.setTextColor(ContextCompat.getColor(getContext() ,R.color.text_black_33));
 
+
+        chatUtils.setChatTitleBarStyle(titleBar , getActivity());
 
         query.setTextColor(ContextCompat.getColor(getContext() ,R.color.text_black_33));
 //        query = (EditText) getView().findViewById(com.hyphenate.easeui.R.id.query);

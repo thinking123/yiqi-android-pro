@@ -22,10 +22,13 @@ import com.eshop.mvp.ui.activity.MainActivity;
 import com.eshop.mvp.utils.AppConstant;
 import com.eshop.mvp.utils.SpUtils;
 
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import timber.log.Timber;
 
 public class SplashActivity extends BaseSupportActivity<LoginPresenter> implements LoginContract.View {
 
+    Disposable disposable;
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
@@ -70,9 +73,9 @@ public class SplashActivity extends BaseSupportActivity<LoginPresenter> implemen
         }
 
 
-        chatUtils.loadAll(new chatUtils.Callback() {
+        disposable = chatUtils.loadAll().subscribe(new Action() {
             @Override
-            public void onSuccess() {
+            public void run() throws Exception {
                 Timber.e("callback loadAll onSuccess");
                 runOnUiThread(()->{
                     new Handler().postDelayed(SplashActivity.this::enterHomeActivity, 200);
@@ -80,6 +83,15 @@ public class SplashActivity extends BaseSupportActivity<LoginPresenter> implemen
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(disposable != null && !disposable.isDisposed()){
+            disposable.dispose();
+            disposable = null;
+        }
     }
 
     private void enterHomeActivity() {

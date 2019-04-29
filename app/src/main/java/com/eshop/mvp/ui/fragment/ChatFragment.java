@@ -21,6 +21,8 @@ import com.eshop.R;
 import com.eshop.huanxin.DemoHelper;
 import com.eshop.huanxin.EmojiconExampleGroupData;
 import com.eshop.huanxin.domain.RobotUser;
+import com.eshop.huanxin.ui.ImageGridActivity;
+import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.huanxin.widget.ChatRowConferenceInvitePresenter;
 import com.eshop.huanxin.widget.ChatRowLivePresenter;
 import com.eshop.huanxin.widget.EaseChatRecallPresenter;
@@ -111,6 +113,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
             }
         });
 
+        chatUtils.setChatTitleBarStyle(titleBar , getActivity());
 //        titleBar.setBackgroundColor(ContextCompat.getColor(getContext()) , R.color.normal_back_ground);
 
         ((EaseEmojiconMenu)inputMenu.getEmojiconMenu()).addEmojiconGroup(EmojiconExampleGroupData.getData());
@@ -139,10 +142,14 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
     @Override
     protected void registerExtendMenuItem() {
         //use the menu in base class
-        super.registerExtendMenuItem();
+//        super.registerExtendMenuItem();
+
+        for(int i = 0; i < 2; i++){
+            inputMenu.registerExtendMenuItem(itemStrings[i], itemdrawables[i], itemIds[i], extendMenuItemClickListener);
+        }
         //extend menu items
 //
-//        inputMenu.registerExtendMenuItem(R.string.attach_video, R.drawable.em_chat_video_selector, ITEM_VIDEO, extendMenuItemClickListener);
+        inputMenu.registerExtendMenuItem(R.string.attach_video, R.drawable.em_chat_video_selector, ITEM_VIDEO, extendMenuItemClickListener);
 //
 //
 //        inputMenu.registerExtendMenuItem(R.string.attach_file, R.drawable.em_chat_file_selector, ITEM_FILE, extendMenuItemClickListener);
@@ -325,8 +332,8 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
     public boolean onExtendMenuItemClick(int itemId, View view) {
         switch (itemId) {
             case ITEM_VIDEO:
-//                Intent intent = new Intent(getActivity(), ImageGridActivity.class);
-//                startActivityForResult(intent, REQUEST_CODE_SELECT_VIDEO);
+                Intent intent = new Intent(getActivity(), ImageGridActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_SELECT_VIDEO);
                 break;
             case ITEM_FILE: //file
                 selectFileFromLocal();
@@ -398,7 +405,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
         public int getCustomChatRowTypeCount() {
             //here the number is the message type in EMMessage::Type
             //which is used to count the number of different chat row
-            return 4;
+            return 14;
         }
 
         @Override

@@ -350,6 +350,35 @@
             android:name=".mvp.ui.activity.order.RefundFinishActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.DesignDemo" />
+
+        <activity android:name=".huanxin.ui.ImageGridActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.DesignDemo" />
+
+        <activity android:name=".huanxin.ui.RecorderVideoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.DesignDemo" />
+
+        <activity android:name=".huanxin.ui.EaseShowVideoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.DesignDemo" />
+        <activity android:name=".huanxin.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.DesignDemo" />
+
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowVideoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.DesignDemo" />
+
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.DesignDemo" />
     </application>
 
 </manifest>
