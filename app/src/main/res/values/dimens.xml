@@ -8,7 +8,10 @@
     <dimen name="dp_70">70dp</dimen>
     <dimen name="dp_10">10dp</dimen>
     <dimen name="dp_2">2dp</dimen>
+    <dimen name="height_row_weixin">65dp</dimen>
+    <dimen name="height_top_bar">46dp</dimen>
 
+    <dimen name="padding_search_bar">5dp</dimen>
     <dimen name="text_small_little">10sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_normal">16sp</dimen>

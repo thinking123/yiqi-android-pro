@@ -13,6 +13,7 @@ import com.eshop.mvp.utils.LoginUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMGroup;
 import com.hyphenate.chat.EMGroupManager;
 import com.hyphenate.easeui.widget.EaseTitleBar;
@@ -87,6 +88,8 @@ public class chatUtils {
 
 
     }
+
+
     public static void joinHuanXinDefaultGroupEx(String chatRoomId) {
 
         EMGroupManager emGroupManager = EMClient.getInstance().groupManager();
@@ -178,6 +181,19 @@ public class chatUtils {
                         if (LoginUtils.isLogin(BaseApp.getInstance().getApplicationContext())) {
                             Timber.e("BaseApp loadAll");
                             if (DemoHelper.getInstance().isLoggedIn()) {
+
+                                try {
+                                    EMConversation emConversation = EMClient.getInstance().chatManager().getConversation(BaseApp.loginBean.getChatRoomId() , EMConversation.EMConversationType.ChatRoom , true);
+                                    if(emConversation != null)
+                                    Timber.i(emConversation.toString());
+                                    else {
+                                        EMClient.getInstance().chatManager().getAllConversations();
+                                    }
+                                }catch (Exception e){
+
+                                    Timber.e(e.getMessage());
+                                }
+
                                 EMClient.getInstance().chatManager().loadAllConversations();
                                 EMClient.getInstance().groupManager().loadAllGroups();
                             }

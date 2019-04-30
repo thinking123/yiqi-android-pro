@@ -1,5 +1,6 @@
 package com.eshop.mvp.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,6 +22,7 @@ import com.eshop.R;
 import com.eshop.huanxin.Constant;
 import com.eshop.huanxin.db.InviteMessgeDao;
 import com.eshop.huanxin.utils.chatUtils;
+import com.eshop.huanxin.widget.ContactItemView;
 import com.eshop.mvp.ui.activity.EaseChatActivity;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
@@ -35,12 +38,47 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.SupportHelper;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
+//import com.hyphenate.chatuidemo.ui
 //import com.hyphenate.chatuidemo.Constant;
 //import com.hyphenate.chatuidemo.R;
 //import com.hyphenate.chatuidemo.db.InviteMessgeDao;
 
 public class ConversationListFragment extends EaseConversationListFragment implements ISupportFragment {
 
+    protected class HeaderItemClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.application_item:
+                    // 进入申请与通知页面
+                    startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
+                    break;
+                case R.id.group_item:
+                    // 进入群聊列表页面
+                    startActivity(new Intent(getActivity(), GroupsActivity.class));
+                    break;
+
+
+//                case R.id.chat_room_item:
+//                    //进入聊天室列表页面
+//                    startActivity(new Intent(getActivity(), PublicChatRoomsActivity.class));
+//                    break;
+//                case R.id.robot_item:
+//                    //进入Robot列表页面
+//                    startActivity(new Intent(getActivity(), RobotsActivity.class));
+//                    break;
+//                case R.id.conference_item: // 创建音视频会议
+//                    ConferenceActivity.startConferenceCall(getActivity(), null);
+//                    break;
+//                default:
+//                    break;
+            }
+        }
+
+    }
+
+    private ContactItemView applicationItem;
     /*
     * easeUI start
     * */
@@ -60,6 +98,18 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         View errorView = (LinearLayout) View.inflate(getActivity(), R.layout.em_chat_neterror_item, null);
         errorItemContainer.addView(errorView);
         errorText = (TextView) errorView.findViewById(R.id.tv_connect_errormsg);
+
+
+        @SuppressLint("InflateParams") View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.conversation_list_header, null);
+        HeaderItemClickListener clickListener = new HeaderItemClickListener();
+        applicationItem = (ContactItemView) headerView.findViewById(R.id.application_item);
+        applicationItem.setOnClickListener(clickListener);
+        headerView.findViewById(R.id.group_item).setOnClickListener(clickListener);
+//        headerView.findViewById(R.id.chat_room_item).setOnClickListener(clickListener);
+
+
+        conversationListView.addHeaderView(headerView);
+
     }
 
     @Override
@@ -75,6 +125,7 @@ public class ConversationListFragment extends EaseConversationListFragment imple
 
         chatUtils.setChatTitleBarStyle(titleBar , getActivity());
 
+        titleBar.setTitle(getResources().getString(R.string.chat_title));
         query.setTextColor(ContextCompat.getColor(getContext() ,R.color.text_black_33));
 //        query = (EditText) getView().findViewById(com.hyphenate.easeui.R.id.query);
 //        titleBar.
