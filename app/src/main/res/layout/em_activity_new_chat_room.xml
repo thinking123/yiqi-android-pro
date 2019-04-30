@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_top_bar"
-        android:background="@color/top_bar_normal_bg"
+        android:background="@color/normal_back_ground"
         android:gravity="center_vertical" >
 
         <LinearLayout
@@ -23,7 +23,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="9dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/em_mm_title_back" />
+                android:src="@drawable/icon_back_black" />
         </LinearLayout>
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/The_new_chat_room"
-            android:textColor="#ffffff"
+            android:textColor="@color/text_black_33"
             android:textSize="20sp" />
 
         <Button
@@ -42,7 +42,7 @@
             android:background="@drawable/ease_common_tab_bg"
             android:onClick="save"
             android:text="@string/button_save"
-            android:textColor="#fff"
+            android:textColor="@color/text_black_33"
             android:textSize="18sp" />
     </RelativeLayout>
 

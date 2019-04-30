@@ -108,6 +108,8 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
         }else{
             titleBar.setRightImageResource(R.drawable.chat_group_icon);
         }
+
+        titleBar.setLeftImageResource(R.drawable.icon_back_black);
         // set click listener
         titleBar.setLeftLayoutClickListener(new View.OnClickListener() {
 
