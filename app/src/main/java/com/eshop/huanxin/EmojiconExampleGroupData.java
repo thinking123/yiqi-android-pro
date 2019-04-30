@@ -62,7 +62,7 @@ public class EmojiconExampleGroupData {
             datas[i].setIdentityCode("em"+ (1000+i+1));
         }
         emojiconGroupEntity.setEmojiconList(Arrays.asList(datas));
-//        emojiconGroupEntity.setIcon(R.drawable.ee_2);
+        emojiconGroupEntity.setIcon(R.drawable.ee_2);
         emojiconGroupEntity.setType(EaseEmojicon.Type.BIG_EXPRESSION);
         return emojiconGroupEntity;
     }
