@@ -21,6 +21,9 @@ import android.widget.Toast;
 import com.eshop.R;
 import com.eshop.huanxin.Constant;
 import com.eshop.huanxin.db.InviteMessgeDao;
+import com.eshop.huanxin.ui.GroupsActivity;
+import com.eshop.huanxin.ui.NewFriendsMsgActivity;
+import com.eshop.huanxin.ui.PublicChatRoomsActivity;
 import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.huanxin.widget.ContactItemView;
 import com.eshop.mvp.ui.activity.EaseChatActivity;
@@ -54,16 +57,16 @@ public class ConversationListFragment extends EaseConversationListFragment imple
                     // 进入申请与通知页面
                     startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
                     break;
-                case R.id.group_item:
-                    // 进入群聊列表页面
-                    startActivity(new Intent(getActivity(), GroupsActivity.class));
-                    break;
-
-
-//                case R.id.chat_room_item:
-//                    //进入聊天室列表页面
-//                    startActivity(new Intent(getActivity(), PublicChatRoomsActivity.class));
+//                case R.id.group_item:
+//                    // 进入群聊列表页面
+//                    startActivity(new Intent(getActivity(), GroupsActivity.class));
 //                    break;
+
+
+                case R.id.chat_room_item:
+                    //进入聊天室列表页面
+                    startActivity(new Intent(getActivity(), PublicChatRoomsActivity.class));
+                    break;
 //                case R.id.robot_item:
 //                    //进入Robot列表页面
 //                    startActivity(new Intent(getActivity(), RobotsActivity.class));
@@ -104,8 +107,8 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         HeaderItemClickListener clickListener = new HeaderItemClickListener();
         applicationItem = (ContactItemView) headerView.findViewById(R.id.application_item);
         applicationItem.setOnClickListener(clickListener);
-        headerView.findViewById(R.id.group_item).setOnClickListener(clickListener);
-//        headerView.findViewById(R.id.chat_room_item).setOnClickListener(clickListener);
+//        headerView.findViewById(R.id.group_item).setOnClickListener(clickListener);
+        headerView.findViewById(R.id.chat_room_item).setOnClickListener(clickListener);
 
 
         conversationListView.addHeaderView(headerView);
@@ -134,7 +137,9 @@ public class ConversationListFragment extends EaseConversationListFragment imple
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                EMConversation conversation = conversationListView.getItem(position);
+//                EMConversation conversation = conversationListView.getItem(position);
+
+                EMConversation conversation = (EMConversation)parent.getAdapter().getItem(position);
                 String username = conversation.conversationId();
                 if (username.equals(EMClient.getInstance().getCurrentUser()))
                     Toast.makeText(getActivity(), R.string.Cant_chat_with_yourself, Toast.LENGTH_SHORT).show();

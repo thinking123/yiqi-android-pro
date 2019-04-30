@@ -8,6 +8,7 @@ import com.eshop.R;
 import com.eshop.huanxin.adapter.NewFriendsMsgAdapter;
 import com.eshop.huanxin.db.InviteMessgeDao;
 import com.eshop.huanxin.domain.InviteMessage;
+import com.eshop.huanxin.utils.chatUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,6 +32,8 @@ public class NewFriendsMsgActivity extends BaseActivity {
         NewFriendsMsgAdapter adapter = new NewFriendsMsgAdapter(this, 1, msgs);
         listView.setAdapter(adapter);
         dao.saveUnreadMessageCount(0);
+
+//        chatUtils.setChatTitleBarStyle(titleBar);
 
     }
 

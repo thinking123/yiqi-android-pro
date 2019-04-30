@@ -21,6 +21,7 @@ import com.eshop.R;
 import com.eshop.huanxin.DemoHelper;
 import com.eshop.huanxin.EmojiconExampleGroupData;
 import com.eshop.huanxin.domain.RobotUser;
+import com.eshop.huanxin.ui.ChatRoomDetailsActivity;
 import com.eshop.huanxin.ui.ImageGridActivity;
 import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.huanxin.widget.ChatRowConferenceInvitePresenter;
@@ -98,8 +99,15 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
             if(robotMap!=null && robotMap.containsKey(toChatUsername)){
                 isRobot = true;
             }
+
         }
         super.setUpView();
+
+        if(chatType == Constant.CHATTYPE_SINGLE){
+            titleBar.setRightImageResource(R.drawable.chat_delete_icon);
+        }else{
+            titleBar.setRightImageResource(R.drawable.chat_group_icon);
+        }
         // set click listener
         titleBar.setLeftLayoutClickListener(new View.OnClickListener() {
 
@@ -112,6 +120,9 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
                 onBackPressed();
             }
         });
+
+
+
 
         chatUtils.setChatTitleBarStyle(titleBar , getActivity());
 //        titleBar.setBackgroundColor(ContextCompat.getColor(getContext()) , R.color.normal_back_ground);
@@ -292,7 +303,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 //                    (new Intent(getActivity(), GroupDetailsActivity.class).putExtra("groupId", toChatUsername)),
 //                    REQUEST_CODE_GROUP_DETAIL);
         }else if(chatType == Constant.CHATTYPE_CHATROOM){
-//            startActivityForResult(new Intent(getActivity(), ChatRoomDetailsActivity.class).putExtra("roomId", toChatUsername), REQUEST_CODE_GROUP_DETAIL);
+            startActivityForResult(new Intent(getActivity(), ChatRoomDetailsActivity.class).putExtra("roomId", toChatUsername), REQUEST_CODE_GROUP_DETAIL);
         }
     }
 

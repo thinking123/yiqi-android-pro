@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.eshop.R;
 import com.eshop.huanxin.Constant;
 import com.eshop.huanxin.adapter.GroupAdapter;
+import com.eshop.mvp.ui.activity.EaseChatActivity;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMGroup;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
@@ -104,7 +105,7 @@ public class GroupsActivity extends BaseActivity {
                     startActivityForResult(new Intent(GroupsActivity.this, PublicGroupsActivity.class), 0);
                 } else {
                     // enter group chat
-                    Intent intent = new Intent(GroupsActivity.this, ChatActivity.class);
+                    Intent intent = new Intent(GroupsActivity.this, EaseChatActivity.class);
                     // it is group chat
                     intent.putExtra("chatType", Constant.CHATTYPE_GROUP);
                     intent.putExtra("userId", groupAdapter.getItem(position - 3).getGroupId());

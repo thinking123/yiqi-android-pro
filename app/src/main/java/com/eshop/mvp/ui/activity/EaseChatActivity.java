@@ -35,7 +35,7 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  */
 public class EaseChatActivity extends BaseActivity<EaseChatPresenter> implements EaseChatContract.View {
 
-    public EaseChatActivity activityInstance;
+    public static EaseChatActivity activityInstance;
     public ChatFragment chatFragment;
     String toChatUsername;
 
@@ -65,6 +65,12 @@ public class EaseChatActivity extends BaseActivity<EaseChatPresenter> implements
         //pass parameters to chat fragment
         chatFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction().add(R.id.ease_chat_container, chatFragment).commit();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        activityInstance = null;
     }
 
     @Override
