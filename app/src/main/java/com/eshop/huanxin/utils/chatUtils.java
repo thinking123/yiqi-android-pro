@@ -61,7 +61,7 @@ public class chatUtils {
 
                         emitter.onNext(null);
 
-                        chatUtils.joinHuanXinDefaultGroupEx(BaseApp.loginBean.getChatRoomId());
+//                        chatUtils.joinHuanXinDefaultGroupEx(BaseApp.loginBean.getChatRoomId());
                         // ** manually load all local groups and conversation
                         EMClient.getInstance().groupManager().loadAllGroups();
                         EMClient.getInstance().chatManager().loadAllConversations();
@@ -169,46 +169,76 @@ public class chatUtils {
 
     public static Completable loadAll() {
 //        Observable.just()
-
-
-       return chatUtils.loadGroupFromServer()
-                .subscribeOn(Schedulers.io())
-                .flatMapCompletable(new Function<List<EMGroup>, CompletableSource>() {
+        return   Completable.create(new CompletableOnSubscribe() {
             @Override
-            public CompletableSource apply(List<EMGroup> emGroups) throws Exception {
+            public void subscribe(CompletableEmitter emitter) throws Exception {
+                if (LoginUtils.isLogin(BaseApp.getInstance().getApplicationContext())) {
+                    Timber.e("BaseApp loadAll");
+                    if (DemoHelper.getInstance().isLoggedIn()) {
 
-                Timber.i("emgroup" );
-                Timber.i(emGroups.toString());
-                return Completable.create(new CompletableOnSubscribe() {
-                    @Override
-                    public void subscribe(CompletableEmitter emitter) throws Exception {
-                        if (LoginUtils.isLogin(BaseApp.getInstance().getApplicationContext())) {
-                            Timber.e("BaseApp loadAll");
-                            if (DemoHelper.getInstance().isLoggedIn()) {
+//                        try {
+//                            EMConversation emConversation = EMClient.getInstance().chatManager().getConversation(BaseApp.loginBean.getChatRoomId() , EMConversation.EMConversationType.ChatRoom , true);
+//                            if(emConversation != null)
+//                                Timber.i(emConversation.toString());
+//                            else {
+//                                EMClient.getInstance().chatManager().getAllConversations();
+//                            }
+//                        }catch (Exception e){
+//
+//                            Timber.e(e.getMessage());
+//                        }
 
-                                try {
-                                    EMConversation emConversation = EMClient.getInstance().chatManager().getConversation(BaseApp.loginBean.getChatRoomId() , EMConversation.EMConversationType.ChatRoom , true);
-                                    if(emConversation != null)
-                                    Timber.i(emConversation.toString());
-                                    else {
-                                        EMClient.getInstance().chatManager().getAllConversations();
-                                    }
-                                }catch (Exception e){
-
-                                    Timber.e(e.getMessage());
-                                }
-
-                                EMClient.getInstance().chatManager().loadAllConversations();
-                                EMClient.getInstance().groupManager().loadAllGroups();
-                            }
-                        }
-
-                        emitter.onComplete();
-
+                        EMClient.getInstance().chatManager().loadAllConversations();
+                        EMClient.getInstance().groupManager().loadAllGroups();
                     }
-                });
+                }
+
+                emitter.onComplete();
+
             }
-        }).observeOn(AndroidSchedulers.mainThread());
+        }) .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+
+
+
+//       return chatUtils.loadGroupFromServer()
+//                .subscribeOn(Schedulers.io())
+//                .flatMapCompletable(new Function<List<EMGroup>, CompletableSource>() {
+//            @Override
+//            public CompletableSource apply(List<EMGroup> emGroups) throws Exception {
+//
+//                Timber.i("emgroup" );
+//                Timber.i(emGroups.toString());
+//                return Completable.create(new CompletableOnSubscribe() {
+//                    @Override
+//                    public void subscribe(CompletableEmitter emitter) throws Exception {
+//                        if (LoginUtils.isLogin(BaseApp.getInstance().getApplicationContext())) {
+//                            Timber.e("BaseApp loadAll");
+//                            if (DemoHelper.getInstance().isLoggedIn()) {
+//
+//                                try {
+//                                    EMConversation emConversation = EMClient.getInstance().chatManager().getConversation(BaseApp.loginBean.getChatRoomId() , EMConversation.EMConversationType.ChatRoom , true);
+//                                    if(emConversation != null)
+//                                    Timber.i(emConversation.toString());
+//                                    else {
+//                                        EMClient.getInstance().chatManager().getAllConversations();
+//                                    }
+//                                }catch (Exception e){
+//
+//                                    Timber.e(e.getMessage());
+//                                }
+//
+//                                EMClient.getInstance().chatManager().loadAllConversations();
+//                                EMClient.getInstance().groupManager().loadAllGroups();
+//                            }
+//                        }
+//
+//                        emitter.onComplete();
+//
+//                    }
+//                });
+//            }
+//        }).observeOn(AndroidSchedulers.mainThread());
 //
 //        return Completable.create(new CompletableOnSubscribe() {
 //            @Override
