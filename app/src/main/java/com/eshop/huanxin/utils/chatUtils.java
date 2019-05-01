@@ -21,6 +21,7 @@ import com.hyphenate.exceptions.HyphenateException;
 
 import org.reactivestreams.Subscription;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
@@ -156,7 +157,10 @@ public class chatUtils {
 
                     @Override
                     public void onError(int i, String s) {
-                        emitter.onError(new HyphenateException(s));
+                        Timber.e(s);
+//                        emitter.onError(new HyphenateException(s));
+
+                        emitter.onSuccess(new ArrayList<EMGroup>());
                     }
                 });
             }
