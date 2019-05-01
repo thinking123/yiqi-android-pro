@@ -55,6 +55,7 @@ public class ProductDetail implements Serializable{
     public String streoName;
     public String title;
     public double unitPrice;
-
+    //环信Id
+    public String huanxinId;
 
 }

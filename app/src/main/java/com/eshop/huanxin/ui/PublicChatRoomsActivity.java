@@ -301,7 +301,7 @@ public class PublicChatRoomsActivity extends BaseActivity {
                     convertView = inflater.inflate(R.layout.em_row_add_group, parent, false);
                 }
                 ((ImageView) convertView.findViewById(R.id.avatar)).setImageResource(R.drawable.em_create_group);
-                final String newChatRoom = "Create new Chat Room";
+                final String newChatRoom = "创建聊天室";
                 ((TextView) convertView.findViewById(R.id.name)).setText(newChatRoom);
             } else {
                 if (convertView == null) {

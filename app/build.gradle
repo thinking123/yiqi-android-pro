@@ -44,10 +44,10 @@ android {
         }
         multiDexEnabled true
 
-        ndk{
-            //easeui arm64-v8a 和app 的 arm64-v8a 冲突，只包括下面的 abi
-            abiFilters 'armeabi-v7a','armeabi','x86'
-        }
+//        ndk{
+//            //easeui arm64-v8a 和app 的 arm64-v8a 冲突，只包括下面的 abi
+//            abiFilters 'armeabi-v7a','armeabi','x86'
+//        }
     }
 
     configurations {
@@ -91,7 +91,7 @@ android {
     sourceSets {
         main {
             jni.srcDirs = []
-            jniLibs.srcDirs = ['libs']
+//            jniLibs.srcDirs = ['libs']
         }
     }
     packagingOptions {

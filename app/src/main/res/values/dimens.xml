@@ -172,6 +172,8 @@
     <!--<dimen name="activity_horizontal_margin">16dp</dimen>-->
     <!--<dimen name="activity_vertical_margin">16dp</dimen>-->
     <dimen name="margin_left_right">15dp</dimen>
+
+    <dimen name="btn_icon_margin">5dp</dimen>
     <dimen name="divider_height">1dp</dimen>
     <dimen name="normal_height">48dp</dimen>
     <dimen name="normal_elevation_height">1dp</dimen>
