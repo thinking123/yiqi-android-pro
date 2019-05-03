@@ -38,6 +38,7 @@ public interface ProductDetailsContract {
         void collectionDelStoreSuccess();
         void updateUserImageSuccess(String data);
         void getCatBeanList(List<CatBean> data);
+        void loginHuanxinResult();
     }
 
     interface Model extends IModel {

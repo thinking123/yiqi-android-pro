@@ -211,6 +211,11 @@ public class CollectionActivity extends BaseSupportActivity<ProductDetailsPresen
     }
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void showLoading() {
 
     }

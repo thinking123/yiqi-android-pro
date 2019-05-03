@@ -346,6 +346,11 @@ public class StoreCatActivity extends BaseSupportActivity<ProductDetailsPresente
     }
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void showLoading() {
 
     }

@@ -22,8 +22,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.eshop.R;
 import com.eshop.app.base.BaseApp;
 import com.eshop.app.base.BaseSupportActivity;
+import com.eshop.app.base.LoginConfig;
 import com.eshop.di.component.DaggerProductDetailsComponent;
 import com.eshop.di.module.ProductDetailsModule;
+import com.eshop.huanxin.DemoHelper;
 import com.eshop.mvp.contract.ProductDetailsContract;
 import com.eshop.mvp.http.entity.cart.AppGoods;
 import com.eshop.mvp.http.entity.category.CatBean;
@@ -246,24 +248,37 @@ public class ProductDetailsActivity extends BaseSupportActivity<ProductDetailsPr
         goodsImgQuickAdapter.setNewData(productDetail.detailMapList);
     }
 
+    @Override
+    public void loginHuanxinResult() {
+//        int position = 1;
+//        showHideFragment(mFragments[position], mFragments[position]);
+//        BaseApp.tabindex = position;
+
+        Intent intent2 = new Intent(this, EaseChatActivity.class);
+        intent2.putExtra(Constant.EXTRA_USER_ID, productDetail.huanxinId);
+        startActivity(intent2);
+    }
+
     @OnClick({R.id.store_bar, R.id.store, R.id.btn_add_cart, R.id.btn_pay, R.id.ll_favorites, R.id.ll_connect_cart , R.id.ll_chat})
     public void onViewClicked(View view) {
 
         switch (view.getId()) {
             case R.id.ll_chat:
-                Intent intent2 = new Intent(this, EaseChatActivity.class);
-//                if(conversation.isGroup()){
-//                    if(conversation.getType() == EMConversation.EMConversationType.ChatRoom){
-//                        // it's group chat
-//                        intent2.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_CHATROOM);
-//                    }else{
-//                        intent2.putExtra(Constant.EXTRA_CHAT_TYPE, Constant.CHATTYPE_GROUP);
-//                    }
-//
-//                }
-                // it's single chat
-                intent2.putExtra(Constant.EXTRA_USER_ID, productDetail.huanxinId);
-                startActivity(intent2);
+                if(LoginUtils.isLogin(ProductDetailsActivity.this)){
+                    if(DemoHelper.getInstance().isLoggedIn()){
+                        Intent intent2 = new Intent(this, EaseChatActivity.class);
+                        intent2.putExtra(Constant.EXTRA_USER_ID, productDetail.huanxinId);
+                        startActivity(intent2);
+                    }else{
+                        if(mPresenter != null){
+                            mPresenter.loginHuanXin(BaseApp.loginBean.getHuanxinId() ,
+                                    LoginConfig.HUAMXINPASSWORD);
+                        }
+                    }
+                }else{
+                    LoginUtils.login(ProductDetailsActivity.this);
+                }
+
                 break;
             case R.id.store_bar:
                 Intent intent = new Intent(this, StoreActivity.class);

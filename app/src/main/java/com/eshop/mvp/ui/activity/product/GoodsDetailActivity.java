@@ -100,6 +100,11 @@ public class GoodsDetailActivity extends BaseSupportActivity<ProductDetailsPrese
     }
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
 
     }

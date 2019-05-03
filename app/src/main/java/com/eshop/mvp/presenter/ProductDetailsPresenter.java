@@ -1,5 +1,6 @@
 package com.eshop.mvp.presenter;
 
+import com.eshop.huanxin.utils.chatUtils;
 import com.eshop.mvp.http.entity.MyBaseResponse;
 import com.eshop.mvp.http.entity.category.CatBean;
 import com.eshop.mvp.http.entity.home.GoodsBean;
@@ -25,11 +26,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import timber.log.Timber;
 
 /**
  * @Author shijun
@@ -70,6 +74,31 @@ public class ProductDetailsPresenter extends BasePresenter<ProductDetailsContrac
     }
 
 
+    public void loginHuanXin(String id , String pw ) {
+        chatUtils.loginHuanXin(id, pw).subscribe(new Observer<Void>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Void aVoid) {
+                Timber.i("login huan xin onext");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mRootView.showMessage("登入聊天系统失败:" + e.getMessage());
+
+                mRootView.loginHuanxinResult();
+            }
+
+            @Override
+            public void onComplete() {
+                mRootView.loginHuanxinResult();
+            }
+        });
+    }
     /**
      * 添加商品到购物车
      * @param userId

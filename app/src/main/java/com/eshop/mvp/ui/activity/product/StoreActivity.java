@@ -579,6 +579,11 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
     }
 
     @Override
+    public void loginHuanxinResult() {
+
+    }
+
+    @Override
     public void showLoading() {
 
     }

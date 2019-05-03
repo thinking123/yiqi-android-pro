@@ -351,5 +351,10 @@ public class GoodsCollectionFragment extends BaseSupportFragment<ProductDetailsP
 
     }
 
+    @Override
+    public void loginHuanxinResult() {
+
+    }
+
 
 }
