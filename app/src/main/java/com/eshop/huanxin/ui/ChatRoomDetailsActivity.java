@@ -400,12 +400,12 @@ public class ChatRoomDetailsActivity extends BaseActivity implements View.OnClic
                 }, true).show();
                 break;
             case R.id.rl_change_chatroom_name:
-                startActivityForResult(new Intent(this, EditActivity.class).putExtra("data", room.getName()).putExtra("title", "edit chat room name").
+                startActivityForResult(new Intent(this, EditActivity.class).putExtra("data", room.getName()).putExtra("title", "修改聊天室标题").
                                 putExtra("editable", isCurrentOwner(room)),
                         REQUEST_CODE_EDIT_CHAT_ROOM_NAME);
                 break;
             case R.id.rl_change_chatroom_detail:
-                startActivityForResult(new Intent(this, EditActivity.class).putExtra("data", room.getDescription()).putExtra("title", "edit chat room detail").
+                startActivityForResult(new Intent(this, EditActivity.class).putExtra("data", room.getDescription()).putExtra("title", "修改聊天室描述").
                                 putExtra("editable", isCurrentOwner(room)),
                         REQUEST_CODE_EDIT_CHAT_ROOM_DESCRIPTION);
                 break;
