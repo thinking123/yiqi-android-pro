@@ -11,5 +11,5 @@ import retrofit2.http.POST;
 
 public interface HuanXinService {
     @POST("/chattoom/addRoom")
-    Observable<BaseResponse<String>> addRoom(@Body ChatRoom chatRoom);
+    Observable<BaseResponse<String>> addChatRoom(@Body ChatRoom chatRoom);
 }
