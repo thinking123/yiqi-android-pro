@@ -24,7 +24,7 @@ import com.jess.arms.di.scope.ActivityScope;
  */
 @Module
 public class HuanXinModule {
-    HuanXinContract.View view;
+    private HuanXinContract.View view;
 
     public HuanXinModule(HuanXinContract.View view) {
         this.view = view;

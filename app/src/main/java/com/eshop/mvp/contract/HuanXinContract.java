@@ -1,6 +1,7 @@
 package com.eshop.mvp.contract;
 
 import com.eshop.mvp.http.entity.BaseResponse;
+import com.eshop.mvp.http.entity.MyBaseResponse;
 import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.IModel;
 
@@ -27,7 +28,7 @@ public interface HuanXinContract {
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
     interface Model extends IModel {
-        Observable<BaseResponse<String>> addChatRoom(
+        Observable<MyBaseResponse<String>> addChatRoom(
                 String description,// "string",
                 String maxusers,// 0,
                 String name,// "string",

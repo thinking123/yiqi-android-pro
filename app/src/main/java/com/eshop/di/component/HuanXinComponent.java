@@ -8,6 +8,7 @@ import com.jess.arms.di.component.AppComponent;
 
 import com.eshop.di.module.HuanXinModule;
 import com.eshop.mvp.contract.HuanXinContract;
+import com.jess.arms.di.scope.ActivityScope;
 
 
 /**
@@ -22,18 +23,19 @@ import com.eshop.mvp.contract.HuanXinContract;
  * <a href="https://github.com/JessYanCoding/MVPArmsTemplate">模版请保持更新</a>
  * ================================================
  */
+@ActivityScope
 @Component(modules = HuanXinModule.class, dependencies = AppComponent.class)
 public interface HuanXinComponent {
 
 
     void inject(NewChatRoomActivity activity);
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        HuanXinComponent.Builder view(HuanXinContract.View view);
-
-        HuanXinComponent.Builder appComponent(AppComponent appComponent);
-
-        HuanXinComponent build();
-    }
+//    @Component.Builder
+//    interface Builder {
+//        @BindsInstance
+//        HuanXinComponent.Builder view(HuanXinContract.View view);
+//
+//        HuanXinComponent.Builder appComponent(AppComponent appComponent);
+//
+//        HuanXinComponent build();
+//    }
 }

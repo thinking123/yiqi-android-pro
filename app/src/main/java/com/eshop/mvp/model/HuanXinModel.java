@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.eshop.mvp.http.api.service.HuanXinService;
 import com.eshop.mvp.http.entity.BaseResponse;
+import com.eshop.mvp.http.entity.MyBaseResponse;
 import com.eshop.mvp.http.entity.huanxin.ChatRoom;
 import com.google.gson.Gson;
 import com.jess.arms.integration.IRepositoryManager;
@@ -47,7 +48,7 @@ public class HuanXinModel extends BaseModel implements HuanXinContract.Model {
     }
 
     @Override
-    public Observable<BaseResponse<String>> addChatRoom(String description, String maxusers, String name, String owner) {
+    public Observable<MyBaseResponse<String>> addChatRoom(String description, String maxusers, String name, String owner) {
         return mRepositoryManager.obtainRetrofitService(HuanXinService.class)
                 .addChatRoom(new ChatRoom(description, maxusers, name, owner));
     }

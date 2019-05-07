@@ -61,6 +61,8 @@ public class LoginUtils {
             BaseApp.loginBean.setCollectStoreNum((Integer) SpUtils.get(context, LoginConfig.COLLECTSTORENUM, 0));
             BaseApp.loginBean.setCollectProductNum((Integer) SpUtils.get(context, LoginConfig.COLLECTPRODUCTNUM, 0));
 
+            BaseApp.loginBean.setHuanxinId((String)SpUtils.get(context , LoginConfig.HUANXINID , ""));
+
             return true;
         }else{
             BaseApp.loginBean = null;

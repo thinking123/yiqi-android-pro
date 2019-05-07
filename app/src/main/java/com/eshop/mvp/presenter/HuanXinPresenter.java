@@ -2,12 +2,15 @@ package com.eshop.mvp.presenter;
 
 import android.app.Application;
 
+import com.eshop.mvp.http.entity.MyBaseResponse;
+import com.eshop.mvp.utils.RxUtils;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.BasePresenter;
 import com.jess.arms.http.imageloader.ImageLoader;
 
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 
 import javax.inject.Inject;
 
@@ -43,6 +46,26 @@ public class HuanXinPresenter extends BasePresenter<HuanXinContract.Model, HuanX
         this.mErrorHandler = rxErrorHandler;
     }
 
+
+
+    public void addChatRoom(String description,// "string",
+                            String maxusers,// 0,
+                            String name,// "string",
+                            String owner){
+        mModel.addChatRoom(description , maxusers ,name , owner)
+                .compose(RxUtils.applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<MyBaseResponse<String>>(mErrorHandler) {
+                    @Override
+                    public void onNext(MyBaseResponse<String> jwtBeanBaseResponse) {
+                        if (jwtBeanBaseResponse.isSuccess()) {
+                            mRootView.addChatRoomResult();
+                        } else {
+                            mRootView.showMessage(jwtBeanBaseResponse.getMsg());
+                        }
+                    }
+                });
+
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
