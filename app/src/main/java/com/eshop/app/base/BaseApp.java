@@ -33,7 +33,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BaseApp extends Application implements App {
-
+    /**
+     * nickname for current user, the nickname instead of ID be shown when user receive notification from APNs
+     */
+    public static String currentUserNick = "";
 
     private AppDelegate mAppDelegate;
     @SuppressLint("StaticFieldLeak")

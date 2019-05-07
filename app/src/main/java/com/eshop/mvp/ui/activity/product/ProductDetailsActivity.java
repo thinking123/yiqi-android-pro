@@ -266,6 +266,7 @@ public class ProductDetailsActivity extends BaseSupportActivity<ProductDetailsPr
             case R.id.ll_chat:
                 if(LoginUtils.isLogin(ProductDetailsActivity.this)){
                     if(DemoHelper.getInstance().isLoggedIn()){
+                        DemoHelper.getInstance().saveUser(productDetail.streoName , productDetail.storeImg , productDetail.huanxinId);
                         Intent intent2 = new Intent(this, EaseChatActivity.class);
                         intent2.putExtra(Constant.EXTRA_USER_ID, productDetail.huanxinId);
                         startActivity(intent2);

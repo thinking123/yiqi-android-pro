@@ -8,6 +8,7 @@ import com.eshop.R;
 import com.eshop.app.base.BaseApp;
 import com.eshop.app.base.LoginConfig;
 import com.eshop.huanxin.DemoHelper;
+import com.eshop.mvp.http.entity.login.LoginBean;
 import com.eshop.mvp.ui.activity.MainActivity;
 import com.eshop.mvp.utils.LoginUtils;
 import com.hyphenate.EMCallBack;
@@ -16,6 +17,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMGroup;
 import com.hyphenate.chat.EMGroupManager;
+import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.widget.EaseTitleBar;
 import com.hyphenate.exceptions.HyphenateException;
 
@@ -65,8 +67,17 @@ public class chatUtils {
                         // ** manually load all local groups and conversation
                         EMClient.getInstance().groupManager().loadAllGroups();
                         EMClient.getInstance().chatManager().loadAllConversations();
-//                        DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
 
+                        LoginBean loginBean = BaseApp.loginBean;
+                        DemoHelper.getInstance().getUserProfileManager().updateCurrentUserNickName(loginBean.getNickNmae());
+                        DemoHelper.getInstance().getUserProfileManager().uploadUserAvatar(loginBean.getLogo());
+//                        boolean updatenick = EMClient.getInstance().pushManager().updatePushNickname(
+//                                BaseApp.currentUserNick.trim());
+//                        if (!updatenick) {
+//                            Timber.e("update current user nick fail");
+//                        }
+//                        DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
+//
                         emitter.onComplete();
                     }
 
@@ -89,6 +100,8 @@ public class chatUtils {
 
 
     }
+
+
 
 
     public static void joinHuanXinDefaultGroupEx(String chatRoomId) {

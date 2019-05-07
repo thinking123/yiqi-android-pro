@@ -42,7 +42,7 @@ public class UserProfileManager {
         if (sdkInited) {
             return true;
         }
-        ParseManager.getInstance().onInit(context);
+//        ParseManager.getInstance().onInit(context);
         syncContactInfosListeners = new ArrayList<DataSyncListener>();
         sdkInited = true;
         return true;
@@ -71,30 +71,30 @@ public class UserProfileManager {
             return;
         }
         isSyncingContactInfosWithServer = true;
-        ParseManager.getInstance().getContactInfos(usernames, new EMValueCallBack<List<EaseUser>>() {
-
-            @Override
-            public void onSuccess(List<EaseUser> value) {
-                isSyncingContactInfosWithServer = false;
-                // in case that logout already before server returns,we should
-                // return immediately
-                if (!DemoHelper.getInstance().isLoggedIn()) {
-                    return;
-                }
-                if (callback != null) {
-                    callback.onSuccess(value);
-                }
-            }
-
-            @Override
-            public void onError(int error, String errorMsg) {
-                isSyncingContactInfosWithServer = false;
-                if (callback != null) {
-                    callback.onError(error, errorMsg);
-                }
-            }
-
-        });
+//        ParseManager.getInstance().getContactInfos(usernames, new EMValueCallBack<List<EaseUser>>() {
+//
+//            @Override
+//            public void onSuccess(List<EaseUser> value) {
+//                isSyncingContactInfosWithServer = false;
+//                // in case that logout already before server returns,we should
+//                // return immediately
+//                if (!DemoHelper.getInstance().isLoggedIn()) {
+//                    return;
+//                }
+//                if (callback != null) {
+//                    callback.onSuccess(value);
+//                }
+//            }
+//
+//            @Override
+//            public void onError(int error, String errorMsg) {
+//                isSyncingContactInfosWithServer = false;
+//                if (callback != null) {
+//                    callback.onError(error, errorMsg);
+//                }
+//            }
+//
+//        });
 
     }
 
@@ -126,37 +126,54 @@ public class UserProfileManager {
     }
 
     public boolean updateCurrentUserNickName(final String nickname) {
-        boolean isSuccess = ParseManager.getInstance().updateParseNickName(nickname);
-        if (isSuccess) {
-            setCurrentUserNick(nickname);
-        }
-        return isSuccess;
+//        boolean isSuccess = ParseManager.getInstance().updateParseNickName(nickname);
+//        if (isSuccess) {
+//            setCurrentUserNick(nickname);
+//        }
+//        return isSuccess;
+
+//        boolean isSuccess = ParseManager.getInstance().updateParseNickName(nickname);
+//        if (isSuccess) {
+//            setCurrentUserNick(nickname);
+//        }
+
+        setCurrentUserNick(nickname);
+        return true;
+
     }
 
-    public String uploadUserAvatar(byte[] data) {
-        String avatarUrl = ParseManager.getInstance().uploadParseAvatar(data);
+//    public String uploadUserAvatar(byte[] data) {
+//        String avatarUrl = ParseManager.getInstance().uploadParseAvatar(data);
+//        if (avatarUrl != null) {
+//            setCurrentUserAvatar(avatarUrl);
+//        }
+//        return avatarUrl;
+//    }
+
+
+    public String uploadUserAvatar(String avatarUrl) {
+//        String avatarUrl = ParseManager.getInstance().uploadParseAvatar(data);
         if (avatarUrl != null) {
             setCurrentUserAvatar(avatarUrl);
         }
         return avatarUrl;
     }
-
     public void asyncGetCurrentUserInfo() {
-        ParseManager.getInstance().asyncGetCurrentUserInfo(new EMValueCallBack<EaseUser>() {
-
-            @Override
-            public void onSuccess(EaseUser value) {
-                if(value != null){
-                    setCurrentUserNick(value.getNickname());
-                    setCurrentUserAvatar(value.getAvatar());
-                }
-            }
-
-            @Override
-            public void onError(int error, String errorMsg) {
-
-            }
-        });
+//        ParseManager.getInstance().asyncGetCurrentUserInfo(new EMValueCallBack<EaseUser>() {
+//
+//            @Override
+//            public void onSuccess(EaseUser value) {
+//                if(value != null){
+//                    setCurrentUserNick(value.getNickname());
+//                    setCurrentUserAvatar(value.getAvatar());
+//                }
+//            }
+//
+//            @Override
+//            public void onError(int error, String errorMsg) {
+//
+//            }
+//        });
 
     }
     public void asyncGetUserInfo(final String username,final EMValueCallBack<EaseUser> callback){

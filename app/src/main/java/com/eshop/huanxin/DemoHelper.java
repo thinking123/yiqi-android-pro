@@ -12,6 +12,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.eshop.app.base.BaseApp;
 import com.eshop.huanxin.db.DemoDBManager;
 import com.eshop.huanxin.db.InviteMessgeDao;
 import com.eshop.huanxin.db.UserDao;
@@ -1263,6 +1264,7 @@ public class DemoHelper {
     private EaseUser getUserInfo(String username){
         // To get instance of EaseUser, here we get it from the user list in memory
         // You'd better cache it if you get it from your server
+
         EaseUser user = null;
         if(username.equals(EMClient.getInstance().getCurrentUser()))
             return getUserProfileManager().getCurrentUserInfo();
@@ -1277,6 +1279,21 @@ public class DemoHelper {
             EaseCommonUtils.setUserInitialLetter(user);
         }
         return user;
+    }
+
+
+    public  void saveUser(String userName , String logo , String hxId){
+        EaseUser easeUser = new EaseUser(hxId);
+        easeUser.setAvatar(logo);
+        easeUser.setNickname(userName);
+        getContactList();
+        contactList.put(hxId, easeUser);
+        UserDao dao = new UserDao(BaseApp.getInstance().getApplicationContext());
+        List<EaseUser> users = new ArrayList<EaseUser>();
+        users.add(easeUser);
+        dao.saveContactList(users);
+
+        getModel().setContactSynced(true);
     }
 
     /**
@@ -1301,6 +1318,31 @@ public class DemoHelper {
                     if(!easeUI.hasForegroundActivies()){
                         getNotifier().notify(message);
                     }
+
+
+
+                    String userName = message.getStringAttribute("userName", "");
+                    String userPic = message.getStringAttribute("userPic", "");
+
+
+                    String hxIdFrom = message.getFrom();
+
+                    EaseUser easeUser = new EaseUser(hxIdFrom);
+                    easeUser.setAvatar(userPic);
+                    easeUser.setNickname(userName);
+
+
+                    getContactList();
+
+                    contactList.put(hxIdFrom, easeUser);
+
+                    UserDao dao = new UserDao(BaseApp.getInstance().getApplicationContext());
+                    List<EaseUser> users = new ArrayList<EaseUser>();
+                    users.add(easeUser);
+                    dao.saveContactList(users);
+
+                    getModel().setContactSynced(true);
+
                 }
             }
 

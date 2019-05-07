@@ -23,6 +23,7 @@ import com.eshop.app.base.BaseApp;
 import com.eshop.app.base.BaseSupportActivity;
 import com.eshop.di.component.DaggerAfterSaleComponent;
 import com.eshop.di.module.AfterSaleModule;
+import com.eshop.huanxin.DemoHelper;
 import com.eshop.mvp.contract.AfterSaleContract;
 import com.eshop.mvp.http.entity.order.AfterSaleOrder;
 import com.eshop.mvp.http.entity.order.AfterSaleStore;
@@ -174,6 +175,9 @@ public class RefundStateActivity extends BaseSupportActivity<AfterSalePresenter>
             case R.id.phone2:
 //                requestPermissions(1);
                 // start chat acitivity
+
+                DemoHelper.getInstance().saveUser(refundDetail.getStreoName() , refundDetail.getStoreImg() , refundDetail.getHuanxinId());
+//                DemoHelper.getInstance().saveUser(refundDetail.get)
                 Intent intent2 = new Intent(this, EaseChatActivity.class);
 //                if(conversation.isGroup()){
 //                    if(conversation.getType() == EMConversation.EMConversationType.ChatRoom){
@@ -185,6 +189,8 @@ public class RefundStateActivity extends BaseSupportActivity<AfterSalePresenter>
 //
 //                }
                 // it's single chat
+
+
                 intent2.putExtra(Constant.EXTRA_USER_ID, refundDetail.getHuanxinId());
                 startActivity(intent2);
                 break;

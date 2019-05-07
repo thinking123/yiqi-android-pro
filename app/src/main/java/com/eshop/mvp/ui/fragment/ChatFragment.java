@@ -34,6 +34,7 @@ import com.hyphenate.chat.EMGroup;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.easeui.EaseConstant;
+import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.model.EaseDingMessageHelper;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.easeui.ui.EaseDingMsgSendActivity;
@@ -44,6 +45,7 @@ import com.hyphenate.exceptions.HyphenateException;
 import com.hyphenate.util.EMLog;
 import com.hyphenate.util.EasyUtils;
 import com.hyphenate.util.PathUtil;
+import com.zkteam.discover.util.TextUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -284,6 +286,18 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
         if(isRobot){
             //set message extension
             message.setAttribute("em_robot_message", isRobot);
+        }
+
+        EaseUser user = DemoHelper.getInstance().getUserProfileManager().getCurrentUserInfo();
+        String nickName = user.getNickname();
+        String logo = user.getAvatar();
+
+        if(!TextUtil.isEmpty(nickName)){
+            message.setAttribute("userName" , nickName);
+        }
+
+        if(!TextUtil.isEmpty(logo)){
+            message.setAttribute("userPic" , logo);
         }
     }
 

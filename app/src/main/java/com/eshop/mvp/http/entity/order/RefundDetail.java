@@ -26,6 +26,26 @@ public class RefundDetail {
     //环信Id
     private String huanxinId;
 
+    private String storeImg;
+
+    public String getStreoName() {
+        return streoName;
+    }
+
+    public void setStreoName(String streoName) {
+        this.streoName = streoName;
+    }
+
+    private String streoName;
+
+    public String getStoreImg() {
+        return storeImg;
+    }
+
+    public void setStoreImg(String storeImg) {
+        this.storeImg = storeImg;
+    }
+
     public String getHuanxinId() {
         return huanxinId;
     }

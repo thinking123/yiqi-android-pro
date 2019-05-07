@@ -61,6 +61,9 @@ public class LoginBean {
     //环信 聊天室Id
     private String chatRoomId;
 
+//    private String nickNmae;
+
+
     public String getChatRoomId() {
         return chatRoomId;
     }
