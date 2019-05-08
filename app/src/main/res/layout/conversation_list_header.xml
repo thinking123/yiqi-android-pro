@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.eshop.huanxin.widget.ContactItemView
-        android:id="@+id/application_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:contactItemImage="@drawable/em_new_friends_icon"
-        app:contactItemName="@string/Application_and_notify" />
+    <!--<com.eshop.huanxin.widget.ContactItemView-->
+        <!--android:id="@+id/application_item"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:contactItemImage="@drawable/em_new_friends_icon"-->
+        <!--app:contactItemName="@string/Application_and_notify" />-->
 
     <!--<com.eshop.huanxin.widget.ContactItemView-->
         <!--android:id="@+id/group_item"-->

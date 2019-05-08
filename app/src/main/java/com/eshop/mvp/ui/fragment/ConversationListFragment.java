@@ -53,10 +53,10 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.application_item:
-                    // 进入申请与通知页面
-                    startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
-                    break;
+//                case R.id.application_item:
+//                    // 进入申请与通知页面
+//                    startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
+//                    break;
 //                case R.id.group_item:
 //                    // 进入群聊列表页面
 //                    startActivity(new Intent(getActivity(), GroupsActivity.class));
@@ -105,8 +105,8 @@ public class ConversationListFragment extends EaseConversationListFragment imple
 
         @SuppressLint("InflateParams") View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.conversation_list_header, null);
         HeaderItemClickListener clickListener = new HeaderItemClickListener();
-        applicationItem = (ContactItemView) headerView.findViewById(R.id.application_item);
-        applicationItem.setOnClickListener(clickListener);
+//        applicationItem = (ContactItemView) headerView.findViewById(R.id.application_item);
+//        applicationItem.setOnClickListener(clickListener);
 //        headerView.findViewById(R.id.group_item).setOnClickListener(clickListener);
         headerView.findViewById(R.id.chat_room_item).setOnClickListener(clickListener);
 
