@@ -238,10 +238,11 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
 //                request(storeId, storeColumnId, sorttype);
                 if(tab.getPosition() == 0){
 //                    storeId = "0" ;
-                    storeColumnId = "0" ;
+                    storeColumnId = null ;
                     sorttype = null;
                 }else{
-
+                    storeColumnId = null ;
+                    sorttype = "desc";
                 }
                 refresh();
             }
