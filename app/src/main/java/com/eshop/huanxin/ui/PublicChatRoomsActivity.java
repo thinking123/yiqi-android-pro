@@ -300,14 +300,14 @@ public class PublicChatRoomsActivity extends BaseActivity {
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.em_row_add_group, parent, false);
                 }
-                ((ImageView) convertView.findViewById(R.id.avatar)).setImageResource(R.drawable.em_create_group);
+                ((ImageView) convertView.findViewById(R.id.avatar)).setImageResource(R.drawable.em_create_group1);
                 final String newChatRoom = "创建聊天室";
                 ((TextView) convertView.findViewById(R.id.name)).setText(newChatRoom);
             } else {
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.em_row_group, parent, false);
                 }
-                ((ImageView) convertView.findViewById(R.id.avatar)).setImageResource(R.drawable.em_group_icon);
+                ((ImageView) convertView.findViewById(R.id.avatar)).setImageResource(R.drawable.em_group_icon1);
                 ((TextView) convertView.findViewById(R.id.name)).setText(getItem(position - 1).getName());
             }
 

@@ -1,22 +1,29 @@
 package com.eshop.mvp.ui.activity.product;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -65,6 +72,8 @@ import com.jess.arms.utils.ArmsUtils;
 import org.angmarch.views.NiceSpinner;
 import org.angmarch.views.SimpleSpinnerTextFormatter;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,12 +124,14 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
     @BindView(R.id.btn_shoucang)
     TextView btn_shoucang;
 
-    @BindView(R.id.nice_spinner_cat)
-    NiceSpinner nice_spinner_cat;
+//    @BindView(R.id.nice_spinner_cat)
+//    NiceSpinner nice_spinner_cat;
+//
+//    @BindView(R.id.nice_spinner_price)
+//    NiceSpinner nice_spinner_price;
 
-    @BindView(R.id.nice_spinner_price)
-    NiceSpinner nice_spinner_price;
-
+    @BindView(R.id.tab_layout)
+    TabLayout tabLayout;
     private boolean isstore = false;
 
     private int mNextRequestPage = 1;
@@ -169,8 +180,91 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
         return R.layout.activity_scrolling;
     }
 
+    class ViewHolder {
+        TextView textView;
+
+        ViewHolder(View tabView) {
+            textView = (TextView) tabView.findViewById(R.id.text);
+        }
+    }
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+
+        tabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                setIndicator(tabLayout,6,6);
+            }
+        });
+
+        List<String> tabs = new ArrayList<String>();
+        tabs.add("全部商品");
+        tabs.add("价格");
+        for (int i = 0; i < tabs.size(); i++) {
+            //获取tab
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            //给tab设置自定义布局
+            tab.setCustomView(R.layout.table_item_custom);
+            ViewHolder holder = new ViewHolder(tab.getCustomView());
+
+            holder.textView.setText(tabs.get(i));
+            //默认选择第一项
+            if (i == 0) {
+                holder.textView.setSelected(true);
+                holder.textView.setTextSize(18);
+                holder.textView.setTextColor(ContextCompat.getColor(StoreActivity.this , R.color.black));
+            }
+        }
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                ViewHolder holder = new ViewHolder(tab.getCustomView());
+                holder.textView.setSelected(true);
+                holder.textView.setTextSize(18);
+                holder.textView.setTextColor(ContextCompat.getColor(StoreActivity.this , R.color.black));
+//                if(tabLayout == null)return;
+//                LinearLayout tabLayout = (LinearLayout)((ViewGroup) StoreActivity.this.tabLayout.getChildAt(0)).getChildAt(tab.getPosition());
+//                TextView tabTextView = (TextView) tabLayout.getChildAt(1);
+//                tabTextView.setTypeface(tabTextView.getTypeface(), Typeface.BOLD);
+
+
+
+//                tabTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP , 60);
+//                tabTextView.setTextSize(32);
+
+//                request(storeId, storeColumnId, sorttype);
+                if(tab.getPosition() == 0){
+//                    storeId = "0" ;
+                    storeColumnId = "0" ;
+                    sorttype = null;
+                }else{
+
+                }
+                refresh();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                ViewHolder holder = new ViewHolder(tab.getCustomView());
+                holder.textView.setSelected(false);
+                //恢复默认字体大小
+                holder.textView.setTextSize(12);
+                holder.textView.setTextColor(ContextCompat.getColor(StoreActivity.this , R.color.gray));
+//                if(tabLayout == null)return;
+//                LinearLayout tabLayout = (LinearLayout)((ViewGroup) StoreActivity.this.tabLayout.getChildAt(0)).getChildAt(tab.getPosition());
+//                TextView tabTextView = (TextView) tabLayout.getChildAt(1);
+//                tabTextView.setTypeface(tabTextView.getTypeface(), Typeface.NORMAL);
+//                tabTextView.setTextSize(22);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         ViewUtils.setImmersionStateMode(this);
 
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -224,50 +318,82 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
         mPresenter.storeColumn(1, storeId);
     }
 
+    public void setIndicator (TabLayout tabs, int leftDip, int rightDip){
+        Class<?> tabLayout = tabs.getClass();
+        Field tabStrip = null;
+        try {
+            tabStrip = tabLayout.getDeclaredField("mTabStrip");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        tabStrip.setAccessible(true);
+        LinearLayout llTab = null;
+        try {
+            llTab = (LinearLayout) tabStrip.get(tabs);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, leftDip, Resources.getSystem().getDisplayMetrics());
+        int right = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, rightDip, Resources.getSystem().getDisplayMetrics());
+
+        for (int i = 0; i < llTab.getChildCount(); i++) {
+            View child = llTab.getChildAt(i);
+            child.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            params.leftMargin = left;
+            params.rightMargin = right;
+            child.setLayoutParams(params);
+
+            child.invalidate();
+        }
+    }
+
     private void set_cat() {
         priceList = new ArrayList<>();
         priceList.add("价格(默认)");
         priceList.add("价格(低到高)");
         priceList.add("价格(高到低)");
 
-        nice_spinner_price.attachDataSource(priceList);
-        nice_spinner_cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                StoreCat storeCat = storeColumns.get(position);
-
-                storeColumnId = storeCat.id + "";
-                if (storeColumnId.equalsIgnoreCase("0")) storeColumnId = null;
-                refresh();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        nice_spinner_price.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                if(position==0){
-                    sorttype = null;
-                }else if(position==1){
-                    sorttype = "asc";
-                }else{
-                    sorttype = "desc";
-                }
-
-                refresh();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        nice_spinner_price.attachDataSource(priceList);
+//        nice_spinner_cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//                StoreCat storeCat = storeColumns.get(position);
+//
+//                storeColumnId = storeCat.id + "";
+//                if (storeColumnId.equalsIgnoreCase("0")) storeColumnId = null;
+//                refresh();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//
+//        nice_spinner_price.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//                if(position==0){
+//                    sorttype = null;
+//                }else if(position==1){
+//                    sorttype = "asc";
+//                }else{
+//                    sorttype = "desc";
+//                }
+//
+//                refresh();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
     }
 
     private void request(String storeId, String storeColumnId, String sorttype) {
@@ -477,8 +603,8 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
             }
         };
 
-        nice_spinner_cat.setSpinnerTextFormatter(textFormatter);
-        nice_spinner_cat.setSelectedTextFormatter(textFormatter);
+//        nice_spinner_cat.setSpinnerTextFormatter(textFormatter);
+//        nice_spinner_cat.setSelectedTextFormatter(textFormatter);
 
         StoreCat storeCat = new StoreCat();
         storeCat.categoryName = "全部";
@@ -486,7 +612,7 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
 
         data.storeColumns.add(0, storeCat);
 
-        nice_spinner_cat.attachDataSource(data.storeColumns);
+//        nice_spinner_cat.attachDataSource(data.storeColumns);
 
         storeColumns = data.storeColumns;
 

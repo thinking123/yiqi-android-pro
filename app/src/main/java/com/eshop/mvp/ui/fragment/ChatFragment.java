@@ -106,7 +106,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
         super.setUpView();
 
         if(chatType == Constant.CHATTYPE_SINGLE){
-            titleBar.setRightImageResource(R.drawable.chat_delete_icon);
+            titleBar.setRightImageResource(R.drawable.chat_delete_icon1);
         }else{
             titleBar.setRightImageResource(R.drawable.chat_group_icon);
         }

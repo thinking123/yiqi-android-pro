@@ -100,27 +100,52 @@
                     android:layout_height="6dp"
                     android:background="@color/gray_f2" />
                 <LinearLayout
+                    android:background="@color/white"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <org.angmarch.views.NiceSpinner
+                    <!--<org.angmarch.views.NiceSpinner-->
 
-                        android:id="@+id/nice_spinner_cat"
+                        <!--android:id="@+id/nice_spinner_cat"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="40dp"-->
+                        <!--android:layout_marginStart="8dp"-->
+                        <!--app:arrowTint="@color/color_3333"-->
+                        <!--app:textTint="@color/color_3333" />-->
+
+                    <!--<org.angmarch.views.NiceSpinner-->
+
+                        <!--android:id="@+id/nice_spinner_price"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="40dp"-->
+                        <!--android:layout_marginStart="4dp"-->
+                        <!--android:layout_marginEnd="8dp"-->
+                        <!--app:arrowTint="@color/color_3333"-->
+                        <!--app:textTint="@color/color_3333" />-->
+
+                    <android.support.design.widget.TabLayout
+                        app:tabMode="fixed"
+                        app:tabIndicatorColor="@color/black"
+                        app:tabTextColor="@color/gray"
+
+                        app:tabIndicatorHeight="4dp"
+                        app:tabSelectedTextColor="@color/black"
+                        android:id="@+id/tab_layout"
+                        android:background="@color/transparent"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        app:arrowTint="@color/color_3333"
-                        app:textTint="@color/color_3333" />
+                        android:layout_height="wrap_content">
+                        <android.support.design.widget.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="全部商品"
 
-                    <org.angmarch.views.NiceSpinner
-
-                        android:id="@+id/nice_spinner_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="8dp"
-                        app:arrowTint="@color/color_3333"
-                        app:textTint="@color/color_3333" />
+                            />
+                        <android.support.design.widget.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="价格"
+                            />
+                    </android.support.design.widget.TabLayout>
 
                 </LinearLayout>
                 <TextView
