@@ -188,7 +188,7 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         } else if (item.getItemId() == R.id.delete_conversation) {
             deleteMessage = false;
         }
-        EMConversation tobeDeleteCons = conversationListView.getItem(((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position);
+        EMConversation tobeDeleteCons = conversationListView.getItem(((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position - 1);
         if (tobeDeleteCons == null) {
             return true;
         }
