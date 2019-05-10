@@ -104,7 +104,7 @@ public class NewChatRoomActivity extends BaseActivity implements HuanXinContract
      */
 //    @OnClick({R.id.new_char_room_save_btn})
     public void save(View v) {
-        showMessage("start room");
+//        showMessage("start room");
         String name = chatRoomNameEditText.getText().toString();
         if (TextUtils.isEmpty(name)) {
             new EaseAlertDialog(this, R.string.Group_name_cannot_be_empty).show();
