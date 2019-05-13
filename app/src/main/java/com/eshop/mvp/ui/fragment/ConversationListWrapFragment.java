@@ -39,6 +39,14 @@ public class ConversationListWrapFragment extends Fragment  implements ISupportF
     }
 
 
+    public void refresh(){
+        ConversationListFragment fragment = findChildFragment(ConversationListFragment.class);
+
+        if(fragment != null){
+            fragment.refresh();
+        }
+
+    }
 
 
 

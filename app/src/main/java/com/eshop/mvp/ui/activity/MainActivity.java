@@ -18,7 +18,9 @@ import com.eshop.mvp.ui.fragment.HomeFragment;
 import com.eshop.mvp.ui.fragment.HotLineFragment;
 import com.eshop.mvp.utils.LoginUtils;
 import com.hyphenate.EMCallBack;
+import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMMessage;
 import com.jaeger.library.StatusBarUtil;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
@@ -41,6 +43,8 @@ import com.eshop.mvp.ui.widget.bottombar.BottomBarTab;
 import com.eshop.mvp.utils.AppConstant;
 import com.eshop.mvp.utils.PicChooserHelper;
 import com.eshop.mvp.utils.SpUtils;
+
+import java.util.List;
 
 import butterknife.BindView;
 //import io.rong.imkit.RongIM;
@@ -235,6 +239,68 @@ public class  MainActivity extends BaseSupportActivity<MainPresenter> implements
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        DemoHelper sdkHelper = DemoHelper.getInstance();
+        sdkHelper.pushActivity(this);
+
+        EMClient.getInstance().chatManager().addMessageListener(messageListener);
+    }
+
+
+    private void refreshUIWithMessage() {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                // refresh unread count
+//                updateUnreadLabel();
+                ISupportFragment fragment = getTopFragment();
+                if(fragment instanceof ConversationListWrapFragment){
+                    ConversationListWrapFragment conversationListWrapFragment = (ConversationListWrapFragment)fragment;
+                    conversationListWrapFragment.refresh();
+                }
+//                if (currentTabIndex == 0) {
+//                    // refresh conversation list
+//                    if (conversationListFragment != null) {
+//                        conversationListFragment.refresh();
+//                    }
+//                }
+            }
+        });
+    }
+
+    EMMessageListener messageListener = new EMMessageListener() {
+
+        @Override
+        public void onMessageReceived(List<EMMessage> messages) {
+            // notify new message
+            for (EMMessage message: messages) {
+                DemoHelper.getInstance().getNotifier().vibrateAndPlayTone(message);
+            }
+            refreshUIWithMessage();
+        }
+
+        @Override
+        public void onCmdMessageReceived(List<EMMessage> messages) {
+            refreshUIWithMessage();
+        }
+
+        @Override
+        public void onMessageRead(List<EMMessage> messages) {
+        }
+
+        @Override
+        public void onMessageDelivered(List<EMMessage> message) {
+        }
+
+        @Override
+        public void onMessageRecalled(List<EMMessage> messages) {
+            refreshUIWithMessage();
+        }
+
+        @Override
+        public void onMessageChanged(EMMessage message, Object change) {}
+    };
+    @Override
     public void connectRongIM(TokenBean data) {
        // Timber.i("RongIM token : %s", data.getToken());
         //RongIMUtils.connect(mContext, data.getToken());
@@ -294,5 +360,10 @@ public class  MainActivity extends BaseSupportActivity<MainPresenter> implements
     protected void onPause() {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
+
+
+        EMClient.getInstance().chatManager().removeMessageListener(messageListener);
+        DemoHelper sdkHelper = DemoHelper.getInstance();
+        sdkHelper.popActivity(this);
     }
 }
