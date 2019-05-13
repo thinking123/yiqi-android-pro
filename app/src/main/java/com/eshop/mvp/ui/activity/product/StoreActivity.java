@@ -198,7 +198,7 @@ public class StoreActivity extends BaseSupportActivity<ProductDetailsPresenter> 
         });
 
         List<String> tabs = new ArrayList<String>();
-        tabs.add("全部商品");
+        tabs.add("全部");
         tabs.add("价格");
         for (int i = 0; i < tabs.size(); i++) {
             //获取tab
