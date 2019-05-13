@@ -253,8 +253,10 @@ public class  MainActivity extends BaseSupportActivity<MainPresenter> implements
             public void run() {
                 // refresh unread count
 //                updateUnreadLabel();
-                ISupportFragment fragment = getTopFragment();
-                if(fragment instanceof ConversationListWrapFragment){
+//                ISupportFragment fragment = getTopFragment();
+
+                ConversationListWrapFragment fragment = findFragment(ConversationListWrapFragment.class);
+                if(fragment != null){
                     ConversationListWrapFragment conversationListWrapFragment = (ConversationListWrapFragment)fragment;
                     conversationListWrapFragment.refresh();
                 }
