@@ -132,6 +132,7 @@ public class ConversationListFragment extends EaseConversationListFragment imple
         query.setTextColor(ContextCompat.getColor(getContext() ,R.color.text_black_33));
 //        query = (EditText) getView().findViewById(com.hyphenate.easeui.R.id.query);
 //        titleBar.
+
 //        TextView titleView = titleBar.findViewById(R.id.)
         conversationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
