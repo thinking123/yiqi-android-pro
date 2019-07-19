@@ -24,6 +24,7 @@ import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.R;
 import com.hyphenate.easeui.model.EaseImageCache;
 import com.hyphenate.easeui.utils.EaseLoadLocalBigImgTask;
+import com.hyphenate.easeui.widget.EaseTitleBar;
 import com.hyphenate.easeui.widget.photoview.EasePhotoView;
 import com.hyphenate.util.EMLog;
 import com.hyphenate.util.ImageUtils;
@@ -31,6 +32,7 @@ import com.hyphenate.util.ImageUtils;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -38,7 +40,10 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.Toolbar;
 
 /**
  * download and show original image
@@ -53,11 +58,38 @@ public class EaseShowBigImageActivity extends EaseBaseActivity {
 	private Bitmap bitmap;
 	private boolean isDownloaded;
 
+	private EaseTitleBar titleBar;
+//	private Toolbar toolbar;
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.ease_activity_show_big_image);
 		super.onCreate(savedInstanceState);
+
+		titleBar = (EaseTitleBar) findViewById(R.id.title_bar);
+		titleBar.setLeftLayoutClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+//                if (EasyUtils.isSingleActivity(getActivity())) {
+//                    Intent intent = new Intent(getActivity(), MainActivity.class);
+//                    startActivity(intent);
+//                }
+				onBackPressed();
+			}
+		});
+
+		ImageView titleBarLeftImage = titleBar.findViewById(R.id.left_image);
+		if(titleBarLeftImage != null){
+			//convertDpToPixel
+
+			titleBarLeftImage.getLayoutParams().height = (int)this.convertDpToPixel(25);
+			titleBarLeftImage.getLayoutParams().width = (int)this.convertDpToPixel(25);
+		}
+		RelativeLayout root = (RelativeLayout)titleBar.findViewById(R.id.root);
+		if(root != null){
+			root.setBackgroundColor(Color.TRANSPARENT);
+		}
 
 		image = (EasePhotoView) findViewById(R.id.image);
 		ProgressBar loadLocalPb = (ProgressBar) findViewById(R.id.pb_load_local);
@@ -99,7 +131,10 @@ public class EaseShowBigImageActivity extends EaseBaseActivity {
 			}
 		});
 	}
-	
+
+	public  float convertDpToPixel(float dp){
+		return dp * ((float) this.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+	}
 	/**
 	 * download image
 	 * 
