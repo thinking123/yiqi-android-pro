@@ -331,9 +331,13 @@ public class MonthAuthActivity extends BaseSupportActivity<MonthAuthPresenter> i
 
     @Override
     public void getMonthMsgStatus(String status, String msg,MonthMsg monthMsg) {
-        tip.setVisibility(View.VISIBLE);
-        tip.setText(monthMsg.getPage1Info());
-        setData(monthMsg);
+
+        if(monthMsg != null){
+            tip.setVisibility(View.VISIBLE);
+            tip.setText(monthMsg.getPage1Info());
+            setData(monthMsg);
+        }
+
     }
 
     private void setData(MonthMsg monthMsg){
