@@ -1,10 +1,12 @@
 package com.eshop.mvp.ui.activity.store;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -45,9 +47,11 @@ import com.eshop.mvp.http.entity.store.Wallet;
 import com.eshop.mvp.http.entity.store.WithDrawRecord;
 import com.eshop.mvp.presenter.MonthAuthPresenter;
 import com.eshop.mvp.presenter.StoreManagerPresenter;
+import com.eshop.mvp.ui.activity.MainActivity;
 import com.eshop.mvp.ui.fragment.DatePickerFragment;
 import com.eshop.mvp.ui.widget.ExampleDialog;
 import com.eshop.mvp.utils.PicChooserHelper;
+import com.hyphenate.easeui.widget.EaseAlertDialog;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
@@ -322,9 +326,12 @@ public class MonthCompanyAuthActivity extends BaseSupportActivity<MonthAuthPrese
 
     @Override
     public void getMonthMsgStatus(String status, String msg,MonthMsg monthMsg) {
-        tip.setVisibility(View.VISIBLE);
-        tip.setText(monthMsg.getPage2Info());
-        setData(monthMsg);
+        if(monthMsg != null){
+            tip.setVisibility(View.VISIBLE);
+            tip.setText(monthMsg.getPage2Info());
+            setData(monthMsg);
+        }
+
     }
 
     private void setData(MonthMsg monthMsg){
@@ -362,6 +369,26 @@ public class MonthCompanyAuthActivity extends BaseSupportActivity<MonthAuthPrese
     public void monthAddSuccess() {
         showMessage("月结认证提交成功");
         finish();
+    }
+
+    @Override
+    public void monthAddSuccess(String msg) {
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(msg)
+                .setTitle("提示")
+                .setCancelable(false)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                       Intent intent = new Intent(MonthCompanyAuthActivity.this , MainActivity.class);
+                       startActivity(intent);
+                       finish();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override

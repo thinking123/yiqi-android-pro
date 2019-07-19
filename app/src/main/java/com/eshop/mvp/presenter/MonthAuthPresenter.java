@@ -118,7 +118,7 @@ public class MonthAuthPresenter extends BasePresenter<MonthAuthContract.Model, M
                     @Override
                     public void onNext(MyBaseResponse<String> response) {
                         if (response.isSuccess()) {
-                            mRootView.monthAddSuccess();
+                            mRootView.monthAddSuccess(response.getMsg());
                         } else {
                             mRootView.showMessage(response.getMsg());
                         }

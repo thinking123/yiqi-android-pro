@@ -32,6 +32,7 @@ public interface MonthAuthContract {
         void getMonthMsgStatus(String status,String msg,MonthMsg monthMsg);
 
         void monthAddSuccess();
+        void monthAddSuccess(String msg);
 
         void monthEditSuccess();
 

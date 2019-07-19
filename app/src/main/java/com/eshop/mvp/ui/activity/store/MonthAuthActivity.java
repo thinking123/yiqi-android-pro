@@ -376,6 +376,11 @@ public class MonthAuthActivity extends BaseSupportActivity<MonthAuthPresenter> i
     }
 
     @Override
+    public void monthAddSuccess(String msg) {
+
+    }
+
+    @Override
     public void monthEditSuccess() {
 
     }
