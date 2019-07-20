@@ -275,8 +275,14 @@ public class MonthCompanyAuthActivity extends BaseSupportActivity<MonthAuthPrese
         BaseApp.monthData.setBusinessLicenseName(edit_name.getText().toString());
         BaseApp.monthData.setBusinessLicenseNumber(edit_phone.getText().toString());
 
-        if(checkBox.isChecked())BaseApp.monthData.setLicenseIsLong("1");
-        else BaseApp.monthData.setLicenseIsLong("0");
+        if(checkBox.isChecked())
+        {
+            BaseApp.monthData.setLicenseIsLong("1");
+            BaseApp.monthData.setLicenseDate("");
+        }
+        else{
+            BaseApp.monthData.setLicenseIsLong("0");
+        }
 
         return true;
     }
